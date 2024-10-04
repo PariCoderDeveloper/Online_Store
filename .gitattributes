@@ -1,0 +1,7 @@
+*.cs text eol=lf
+
+*.bat text eol=crlf
+*.cs linguist-language=CSharp
+*.html linguist-vendored
+*.js linguist-vendored
+*.css linguist-vendored
