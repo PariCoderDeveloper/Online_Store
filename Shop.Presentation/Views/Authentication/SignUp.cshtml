@@ -1,0 +1,170 @@
+﻿@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="space-bottom">
+    <div class="container">
+        <div class="form-container">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">ورود به سایت</button>
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">ثبت نام</button>
+                </div>
+            </nav>
+            @Html.AntiForgeryToken();
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div id="signUpForm" class="contact-form input-smoke ajax-contact active">
+                        <h2 class="sec-title">ثبت نام کاربر</h2>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <i class="fal fa-user"></i>
+                                <input type="text" class="form-control" name="Fullname" id="Fullname" placeholder="اسم شما">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <i class="fal fa-envelope"></i>
+                                <input type="email" class="form-control" name="Email" id="Email" placeholder="آدرس ایمیل">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <i class="fal fa-lock"></i>
+                                <input type="password" class="form-control" name="Password" id="Password" placeholder="رمز عبور">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <i class="fal fa-lock"></i>
+                                <input type="password" class="form-control" name="repassword" id="repassword" placeholder="تکرار رمز عبور">
+                            </div>
+                            <div class="btn form-btn col-12"><button class="th-btn btn-fw" onclick="registerUser(event)">ثبت نام<i class="fas fa-chevron-right ms-2"></i></button></div>
+                        </div>
+                        <p class="form-messages mb-0 mt-3"></p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div id="signInForm" class="contact-form input-smoke ajax-contact ">
+                        <h2 class="sec-title">ورود کاربر</h2>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <i class="fal fa-envelope"></i>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="آدرس ایمیل">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <i class="fal fa-lock"></i>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="رمز عبور">
+                            </div>
+                            <div class="form-btn col-12"><button class="th-btn btn-fw" onclick="login()"> ورود به سایت<i class="fas fa-chevron-right ms-2"></i></button></div>
+                        </div>
+                        <p class="form-messages mb-0 mt-3"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link href="~/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+        function login() {
+            var email = $("#email").val();
+            var password = $("#password").val();
+            var token = $('input[name="__RequestVerificationToken"]').val();
+            var postData = {
+                'token':token,
+                'Email': email,
+                'Password': password
+            };
+            $.ajax({
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                dataType: 'json',
+                type: "POST",
+                url: "Login",
+                data: postData,
+                success: function (data) {
+                    if (data.isSuccess) {
+                        Swal.fire({
+                            title: "موفق!",
+                            text: data.message,
+                            icon: 'success'
+                        }).then(function () {
+                            window.location.replace("/");
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "هشدار",
+                            text: data.message,
+                            icon: 'warning'
+                        });
+                    }
+                },
+                error: function () {
+                    Swal.fire({
+                        title: 'خطا',
+                        text: 'خطایی در انجام عملیات رخ داده است. لطفاً دوباره تلاش کنید.',
+                        icon: 'error'
+                    });
+                }
+            });
+        }
+
+        function registerUser(event) {
+            event.preventDefault(); // جلوگیری از ارسال فرم به روش عادی
+            Swal.fire({
+                title: 'ثبت نام کاربر',
+                text: "آیا می‌خواهید ثبت‌نام کاربر را انجام دهید؟",
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#017D03',
+                cancelButtonColor: '#dc3545',
+                confirmButtonText: 'بله، ثبت‌نام انجام شود',
+                cancelButtonText: 'خیر',
+            }).then((result) => {
+                if (result.value) {
+                    var fullname = $("#Fullname").val();
+                    var email = $("#Email").val();
+                    var password = $("#Password").val();
+                    var rePassword = $("#repassword").val();
+                    var token = $('input[name="__RequestVerificationToken"]').val();
+                    var postData = {
+                        'token':token,
+                        'Fullname': fullname,
+                        'Email': email,
+                        'Password': password,
+                        'RePassword': rePassword,
+                    };
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                        dataType: 'json',
+                        type: "POST",
+                        url: "SignUp",
+                        data: postData,
+                        success: function (data) {
+                            if (data.isSuccess) {
+                                Swal.fire({
+                                    title: 'موفق!',
+                                    text: data.message,
+                                    icon: 'success'
+                                }).then(function () {
+                                    window.location.href = '/';
+                                });
+                            } else {
+                                Swal.fire({
+                                    title: 'هشدار',
+                                    text: data.message,
+                                    icon: 'warning'
+                                });
+                            }
+                        },
+                        error: function () {
+                            Swal.fire({
+                                title: 'خطا',
+                                text: 'خطایی در انجام عملیات رخ داده است. لطفاً دوباره تلاش کنید.',
+                                icon: 'error'
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+
+}

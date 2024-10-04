@@ -1,0 +1,34 @@
+﻿@using Shop.Application.Services.Commen.Query.GetMenuService;
+@model List<MenuServiceDto>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+   
+        @if (item.Child.Count() > 0)
+    {
+        <li class="menu-item-has-children">
+            <a href="~/ListProducts?page=1&catid=@item.CatId">@item.Name</a>
+            <ul class="sub-menu">
+                @foreach (var child in item.Child)
+                {
+                    <li><a href="~/ListProducts?page=1&catid=@child.CatId">@child.Name</a></li>
+                }
+            </ul>
+        </li>
+    }
+    else
+    {
+
+        <li class="menu-item">
+            <a href="~/ListProducts?page=1&catid=@item.CatId">@item.Name</a>
+        </li>
+    }
+
+
+
+
+
+}

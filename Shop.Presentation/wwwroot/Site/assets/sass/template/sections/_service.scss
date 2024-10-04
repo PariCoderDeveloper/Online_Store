@@ -1,0 +1,127 @@
+/* Service Card ---------------------------------- */
+.service-card {
+    --gap: 30px;
+    position: relative;
+    text-align: center;
+    filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.04));
+    @media (max-width: 350px) {
+        --gap: 15px;
+    }
+    .box-img {
+        border-radius: 20px;
+        overflow: hidden;
+        img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            transition: 0.4s ease-in-out;
+        }
+    }
+    .box-content {
+        max-width: calc(100% - var(--gap)*2);
+        margin-left: var(--gap);
+        margin-top: -64px;
+        position: relative;
+        z-index: 2;
+        padding: 85px 10px 54px 10px;
+        background-color: $white-color;
+    }
+    .box-icon {
+        position: absolute;
+        top: 126px;
+        left: calc(50% - 56px);
+        z-index: 3;
+    }
+    .box-title {
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    .box-text {
+        max-width: 254px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .icon-btn {
+        border-radius: 99px;
+        background-color: $theme-color2;
+        border-color: $theme-color2;
+        color: $white-color;
+        position: relative;
+        z-index: 3;
+        display: block;
+        margin: -29px auto 0 auto;
+        &:hover {
+            background-color: $theme-color;
+            border-color: $theme-color;
+        }
+    }
+    &:hover {
+        .box-img {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+/* Service Details ---------------------------------- */ 
+.page-title {
+    margin-bottom: 20px;
+}
+
+.page-img {
+    margin-bottom: 40px;
+    overflow: hidden;
+    border-radius: 20px;
+    img {
+        width: 100%;
+    }
+    @include sm {
+        border-radius: 10px;
+    }
+}
+.page-single {
+    margin-bottom: 30px;
+}
+.service-feature {
+    &-wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        @include sm {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    background-color: $white-color;
+    padding: 20px 20px 20px 70px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    .box-icon {
+        background: $smoke-color2;
+        @include equal-size-lineHeight(80px);
+        text-align: center;
+        border-radius: 99px;
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        z-index: 2;
+        &:after {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            background-color: $theme-color;
+            border-radius: inherit;
+            z-index: -1;
+        }   
+    }
+    .box-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        margin-top: -0.3em;
+    }
+}

@@ -1,0 +1,72 @@
+
+/* Feature List ---------------------------------- */
+.feature-list {
+    &-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.06);
+    }
+    &-line {
+        height: 100px;
+        width: 1px;
+        background-color: $border-color;
+        &:last-child {
+            display: none;
+        }
+    }
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .box-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 3px;
+    }
+    .box-icon {
+        @include equal-size-lineHeight(70px);
+        text-align: center;
+        background-color: $smoke-color2;
+        border-radius: 99px;
+    }
+    .box-text {
+        font-size: 14px;
+    }
+}
+
+@include lg {
+    .feature-list {
+        &-line {
+            height: 155px;
+        }
+        display: block;
+        text-align: center;
+        padding: 15px 5px;
+        .box-icon {
+            margin: 0 auto 15px auto;
+        }
+    }
+}
+@include md {
+    .feature-list {
+        &-wrap {
+            flex-wrap: wrap;
+            padding: 0;
+            align-items: stretch;
+        }
+        &-line {
+            display: none;
+        }
+        flex: 50%;
+        padding: 15px 8px;
+        &:nth-child(1),
+        &:nth-child(5) {
+            border-right: 1px solid $border-color;
+        }
+        &:nth-child(1),
+        &:nth-child(3) {
+            border-bottom: 1px solid $border-color;
+        }
+    }
+}

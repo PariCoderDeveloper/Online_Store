@@ -1,0 +1,135 @@
+﻿@using Shop.Application.Services.Product.Queries.GetDetailProductAdmin
+@model ProductDetailForAdminDto
+
+@{
+    ViewData["Title"] = "جزئیات محصول";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<!-- اضافه کردن فونت به صفحه -->
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+
+<div class="container my-4" style="font-family: 'Vazir', sans-serif;">
+    <!-- کارت اطلاعات محصول -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-warning text-white">
+            <h5 class="card-title mb-0 d-flex align-items-center" style="font-weight: bold;">
+                <i class="fas fa-info-circle me-2" style="font-size: 1.2rem;"></i> اطلاعات بیشتر در مورد محصول
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-box me-2" style="color: #007bff; font-size: 1.1rem;"></i>
+                        <strong class="text-dark">محصول:</strong>
+                    </div>
+                    <p class="text-muted">@Model.Name</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-tags me-2" style="color: #007bff; font-size: 1.1rem;"></i>
+                        <strong class="text-dark">برند:</strong>
+                    </div>
+                    <p class="text-muted">@Model.Brand</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-th-list me-2" style="color: #007bff; font-size: 1.1rem;"></i>
+                        <strong class="text-dark">دسته بندی:</strong>
+                    </div>
+                    <p class="text-muted">@Model.Category</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-dollar-sign me-2" style="color: #007bff; font-size: 1.1rem;"></i>
+                        <strong class="text-dark">قیمت:</strong>
+                    </div>
+                    <p class="text-muted">@Model.Price.ToString("n0") تومان</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-warehouse me-2" style="color: #007bff; font-size: 1.1rem;"></i>
+                        <strong class="text-dark">موجودی:</strong>
+                    </div>
+                    <p class="text-muted">@Model.Inventory</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-eye me-2" style="color: #007bff; font-size: 1.1rem;"></i>
+                        <strong class="text-dark">نمایش در سایت؟</strong>
+                    </div>
+                    <p class="text-muted">@Model.Displayed</p>
+                </div>
+                 <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-eye me-2" style="color: #007bff; font-size: 1.1rem;"></i>
+                        <strong class="text-dark">تعداد بازدید</strong>
+                    </div>
+                    <p class="text-muted">@Model.VisitedCount</p>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-info me-2" style="color: #007bff; font-size: 1.1rem;"></i>
+                        <strong class="text-dark">توضیحات:</strong>
+                    </div>
+                    <p class="text-muted">@Model.Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- کارت تصاویر و ویژگی‌های محصول -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-success text-white">
+            <h5 class="card-title mb-0 d-flex align-items-center" style="font-weight: bold;">
+                <i class="fas fa-images me-2" style="font-size: 1.2rem;"></i> تصاویر و ویژگی های محصول
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-md-4 mb-3">
+                    <table class="table table-bordered text-center">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>نام ویژگی</th>
+                                <th>مقدار</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.productFeatures)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <i class="fas fa-cog me-2 text-primary"></i> @item.DisplayName
+                                        </div>
+                                    </td>
+                                    <td>@item.Value</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-12 col-md-8">
+                    <div class="row justify-content-center">
+                        @foreach (var item in Model.productImages)
+                        {
+                            <figure class="col-xl-4 col-lg-4 col-sm-6 col-12 mb-3">
+                                <a target="_blank" href="~/@item.Src">
+                                    <img class="img-thumbnail img-fluid shadow-sm" src="~/@item.Src" alt="Product Image">
+                                </a>
+                            </figure>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                   @section Scripts {
+    <link href="~/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+        </script>
+}

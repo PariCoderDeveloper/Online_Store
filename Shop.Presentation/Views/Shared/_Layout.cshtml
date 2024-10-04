@@ -1,0 +1,306 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers;
+<!DOCTYPE html>
+<html class="no-js" lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>فروشگاه</title>
+    <meta name="author" content="Frutin">
+    <meta name="description" content="Frutin - Organic and Healthy Food HTML Template">
+    <meta name="keywords" content="Frutin - Organic and Healthy Food HTML Template">
+    <meta name="robots" content="INDEX,FOLLOW">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="57x57" href="~/site/assets/img/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/site/assets/img/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/site/assets/img/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/site/assets/img/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/site/assets/img/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/site/assets/img/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/site/assets/img/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/site/assets/img/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/site/assets/img/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/site/assets/img/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/site/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/site/assets/img/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/site/assets/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="~/site/assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Lexend:wght@300;400;500;600;700;800;900&family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/site/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/site/assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/site/assets/css/magnific-popup.min.css">
+    <link rel="stylesheet" href="~/site/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/site/assets/css/style.css">
+</head>
+<body>
+    <div class="preloader ">
+        <button class="th-btn preloaderCls">لغو Preloader</button><div class="preloader-inner">
+            <div class="loader">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+    <div id="QuickView" class="white-popup mfp-hide">
+        <div class="container bg-white rounded-10">
+            <div class="row gx-60">
+                <div class="col-lg-6"><div class="product-big-img"><div class="img"><img src="~/site/assets/img/product/product_details_1_1.jpg" alt="Product Image"></div></div></div>
+                @*     <div class="col-lg-6 align-self-center">
+                <div class="product-about">
+                <p class="price">$120.85<del>$150.99</del></p>
+                <h2 class="product-title">میوه سیب بوسکو</h2>
+                <div class="product-rating">
+                <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                <a href="shop-details.html" class="woocommerce-review-link">(<span class="count">4</span>نظرات مشتریان)</a>
+                </div>
+                <p class="text">برای شروع یک سفر حسی با سیب بوسکو آماده شوید، میوه ای که فراتر از چیزهای معمولی است و تجربه طعمی بی نظیر را نوید می دهد. این سیب‌ها چیزی جز شاهکار طبیعت نیستند که به دلیل ترکیب متمایز طعم‌ها و جذابیت بصری فریبنده‌شان شناخته می‌شوند.</p>
+                <div class="mt-2 link-inherit"><p><strong class="text-title me-3">دسترسی:</strong><span class="stock in-stock"><i class="far fa-check-square me-2 ms-1"></i>در انبار</span></p></div>
+                <div class="actions">
+                <div class="quantity">
+                <input type="number" class="qty-input" step="1" min="1" max="100" name="quantity" value="1" title="Qty"><button class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i></button><button class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i></button>
+                </div>
+                <button class="th-btn">به سبد خرید اضافه کنید</button><a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                </div>
+                <div class="product_meta">
+                <span class="sku_wrapper">SKU:<span class="sku">بوسکو-سیب-میوه</span></span><span class="posted_in">دسته بندی:<a href="shop.html">میوه های تازه</a></span><span>برچسب ها:<a href="shop.html">میوه ها</a><a href="shop.html">ارگانیک. آلی</a></span>
+                </div>
+                </div>
+                </div> *@
+            </div>
+            <button title="Close (Esc)" type="button" class="mfp-close">×</button>
+        </div>
+    </div>
+    <div class="sidemenu-wrapper sidemenu-cart d-none d-lg-block ">
+        <div class="sidemenu-content">
+            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button><div class="widget woocommerce widget_shopping_cart">
+                <h3 class="widget_title">سبد خرید</h3>
+                <div class="widget_shopping_cart_content">
+                    <ul class="woocommerce-mini-cart cart_list product_list_widget ">
+                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a><a href="#"><img src="assets/img/product/product_thumb_1_1.jpg" alt="Cart Image">میوه سیب بوسکو</a><span class="quantity">1×<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>940.00</span></span>
+                        </li>
+                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a><a href="#"><img src="assets/img/product/product_thumb_1_2.jpg" alt="Cart Image">گل کلم سبز</a><span class="quantity">1×<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>899.00</span></span>
+                        </li>
+                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a><a href="#"><img src="assets/img/product/product_thumb_1_3.jpg" alt="Cart Image">پرتقال ماندارین</a><span class="quantity">1×<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>756.00</span></span>
+                        </li>
+                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a><a href="#"><img src="assets/img/product/product_thumb_1_4.jpg" alt="Cart Image">موسیر پیاز قرمز</a><span class="quantity">1×<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>723.00</span></span>
+                        </li>
+                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a><a href="#"><img src="assets/img/product/product_thumb_1_5.jpg" alt="Cart Image">آلبالو قرمز</a><span class="quantity">1×<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>1080.00</span></span>
+                        </li>
+                    </ul>
+                    <p class="woocommerce-mini-cart__total total"><strong>جمع فرعی:</strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>4398.00</span></p>
+                    <p class="woocommerce-mini-cart__buttons buttons"><a href="cart.html" class="th-btn wc-forward">مشاهده سبد خرید</a><a href="checkout.html" class="th-btn checkout wc-forward">وارسی</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidemenu-wrapper sidemenu-info d-none d-lg-block ">
+        <div class="sidemenu-content">
+            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button><div class="widget ">
+                <div class="th-widget-about">
+                    <div class="about-logo"><a href="home-organic-farm.html"><img src="~/site/assets/img/logo.svg" alt="Frutin"></a></div>
+                    <p class="about-text">ما خدمات تخصصی زمستانه سازی را برای محافظت از استخر شما در فصل خارج از فصل ارائه می دهیم و هنگامی که بهار فرا می رسد، فرآیند بازگشایی کامل را انجام می دهیم.</p>
+                    <div class="th-social">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a><a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a><a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a><a href="https://www.whatsapp.com/"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="widget ">
+                <h3 class="widget_title">با ما تماس بگیرید</h3>
+                <div class="th-widget-contact">
+                    <div class="info-box">
+                        <div class="info-box_icon"><i class="fas fa-location-dot"></i></div>
+                        <p class="info-box_text">8502 خیابان پرستون اینگلوود، مین 98380</p>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-box_icon"><i class="fas fa-phone"></i></div>
+                        <p class="info-box_text"><a href="tel:+16326543564" class="info-box_link">+(163)-2654-3564</a><a href="tel:+16326545432" class="info-box_link">+(163)-2654-5432</a></p>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-box_icon"><i class="fas fa-envelope"></i></div>
+                        <p class="info-box_text"><a href="mailto:help24/7@frutin.com" class="info-box_link">help24/7@frutin.com</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="widget newsletter-widget ">
+                <h3 class="widget_title">خبرنامه</h3>
+                <p class="footer-text">برای دریافت اخبار به روز در مورد ما ثبت نام کنید</p>
+                <form class="newsletter-form">
+                    <input class="form-control" type="email" placeholder="ایمیل را وارد کنید" required=""><button type="submit" class="th-btn">اشتراک در</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="popup-search-box d-none d-lg-block">
+        <button class="searchClose">
+            <i class="fal fa-times"></i>
+        </button>
+        <!--Search Section-->
+        <form asp-action="Index" asp-controller="ListProducts" method="get">
+            <input type="text" placeholder="دنبال چی میگردی؟" name="SearchKey" />
+
+            <input type="submit" />
+            <i class="fal fa-search"></i>
+
+        </form>
+    </div>
+    <div class="th-menu-wrapper">
+        <div class="th-menu-area text-center">
+            <button class="th-menu-toggle"><i class="fal fa-times"></i></button><div class="mobile-logo"><a href="home-organic-farm.html"><img src="~/site/assets/img/logo.svg" alt="Frutin"></a></div>
+            <div class="th-mobile-menu">
+                <ul>
+                    <li><a href="~/Home">صفحه اصلی</a></li>
+                    <!--View Component-->
+                    @await Component.InvokeAsync("GetMenu")
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="contact.html">مخاطب</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <header class="th-header header-layout3">
+        <div class="menu-top">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto"><div class="header-logo"><a href="home-organic-farm.html"><img src="~/Site/assets/img/Sperolina.png" alt="Frutin"></a></div></div>
+<div class="col-auto d-none d-lg-block" style="width:60%; margin: 0 auto;">
+                     <!--View Component-->
+                     @await Component.InvokeAsync("Search")
+</div>
+                    <div class="col-auto">
+                        <div class="header-icons">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a href="~/home/SignOut" class="icon-btn d-none d-sm-block"><span class="badge">3</span>خروج </a>
+                                <button type="button" class="icon-btn sideMenuToggler"><span class="badge">5</span><i class="far fa-cart-shopping"></i></button>
+                            }
+                            else
+                            {
+                                <a href="~/Authentication/SignUp" class="icon-btn d-none d-sm-block"><i class="far fa-user"></i></a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sticky-wrapper">
+            <div class="menu-area">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+
+                        <div class="col-auto">
+                            <nav class="main-menu menu-style1 d-none d-lg-inline-block">
+                                <ul>
+                                    <li><a href="~/Home">صفحه اصلی</a></li>
+                                    <!--View Component-->
+                                    @await Component.InvokeAsync("GetMenu")
+                                    <li><a href="about.html">درباره ما</a></li>
+                                    <li><a href="contact.html">مخاطب</a></li>
+                                </ul>
+                            </nav><button type="button" class="th-menu-toggle d-block d-lg-none"><i class="far fa-bars"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    @RenderBody()
+    <footer class="footer-wrapper footer-layout3">
+        <div class="shape-mockup" data-top="0" data-left="0"><img src="~/site/assets/img/shape/footer_shape_3.png" alt="shape"></div>
+        <div class="shape-mockup" data-bottom="0" data-right="0"><img src="~/site/assets/img/shape/footer_shape_4.png" alt="shape"></div>
+        <div class="widget-area">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-md-6 col-xl-auto">
+                        <div class="widget footer-widget">
+                            <div class="th-widget-about">
+                                <div class="about-logo"><a href="home-organic-farm.html"><img src="~/Site/assets/img/Sperolina_f.png" alt="Sperolina" width="80%" height="80%"></a></div>
+                                <p class="about-text">ما خدمات تخصصی زمستانه سازی را برای محافظت از استخر شما در فصل خارج از فصل ارائه می دهیم و هنگامی که بهار فرا می رسد، فرآیند بازگشایی کامل را انجام می دهیم.</p>
+                                <div class="th-social">
+                                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a><a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a><a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a><a href="https://www.whatsapp.com/"><i class="fab fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-auto">
+                        <div class="widget widget_nav_menu footer-widget">
+                            <h3 class="widget_title">
+                                <img src="~/site/assets/img/theme-img/title_icon.svg" alt="Icon">دسته بندی ها
+                            </h3>
+                            <div class="menu-all-pages-container">
+                                <ul class="menu">
+                                    @await Component.InvokeAsync("GetMenu")
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-auto">
+                        <div class="widget widget_nav_menu footer-widget">
+                            <h3 class="widget_title">
+                                <img src="~/site/assets/img/theme-img/title_icon.svg" alt="Icon">لینک های سریع
+                            </h3>
+                            <div class="menu-all-pages-container">
+                                <ul class="menu">
+                                    <li><a href="about.html">درباره ما</a></li>
+                                    <li><a href="project.html">نمونه کارها</a></li>
+                                    <li><a href="faq.html">راهنما و سوالات متداول</a></li>
+                                    <li><a href="blog.html">وبلاگ</a></li>
+                                    <li><a href="contact.html">با ما تماس بگیرید</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-auto">
+                        <div class="widget footer-widget">
+                            <h3 class="widget_title">
+                                <img src="~/site/assets/img/theme-img/title_icon.svg" alt="Icon">با ما تماس بگیرید
+                            </h3>
+                            <div class="th-widget-contact">
+                                <div class="info-box">
+                                    <div class="info-box_icon"><i class="fas fa-location-dot"></i></div>
+                                    <p class="info-box_text">8502 خیابان پرستون اینگلوود، مین 98380</p>
+                                </div>
+                                <div class="info-box">
+                                    <div class="info-box_icon"><i class="fas fa-phone"></i></div>
+                                    <p class="info-box_text"><a href="tel:+16326543564" class="info-box_link">+(163)-2654-3564</a><a href="tel:+16326545432" class="info-box_link">+(163)-2654-5432</a></p>
+                                </div>
+                                <div class="info-box">
+                                    <div class="info-box_icon"><i class="fas fa-envelope"></i></div>
+                                    <p class="info-box_text"><a href="mailto:help24/7@frutin.com" class="info-box_link">help24/7@frutin.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-wrap" data-bg-src="~/site/assets/img/bg/copyright_bg_1.png">
+            <div class="container">
+                <div class="row gy-2 align-items-center">
+                    <div class="col-md-6"><p class="copyright-text">کپی رایت<i class="fal fa-copyright"></i>2023<a href="home-organic-farm.html">بایو گرین</a>. تمامی حقوق محفوظ است.</p></div>
+                    <div class="col-md-6 text-center text-md-end"><div class="payment-img"><img src="assets/img/normal/payment_methods.png" alt="Image"></div></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="scroll-top"><svg class="progress-circle svg-content" width="100%" height="100%" viewbox="-1 -1 102 102"><path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path></svg></div>
+    <script src="~/site/assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="~/site/assets/js/swiper-bundle.min.js"></script>
+    <script src="~/site/assets/js/bootstrap.min.js"></script>
+    <script src="~/site/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/site/assets/js/jquery.counterup.min.js"></script>
+    <script src="~/site/assets/js/jquery-ui.min.js"></script>
+    <script src="~/site/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="~/site/assets/js/isotope.pkgd.min.js"></script>
+    <script src="~/site/assets/js/main.js"></script>
+    @RenderSection("Scripts")
+</body>
+</html>

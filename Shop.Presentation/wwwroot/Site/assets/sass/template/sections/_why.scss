@@ -1,0 +1,173 @@
+/* Why 1 ---------------------------------- */ 
+.choose-feature {
+    &-area {
+        background-color: $smoke-color2;
+        border-radius: 30px;
+        padding: 30px;
+        position: relative;
+        @include lg {
+            display: inline-block;
+            text-align: center;
+        }
+        @include sm {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            display: block;
+        }
+    }
+    &-wrap {
+        display: inline-grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        @include xs {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    background-color: $white-color;
+    padding: 20px 20px 20px 70px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    max-width: 285px;
+    text-align: left;
+    @include lg {
+        max-width: 350px;
+    }
+    .box-icon {
+        width: 80px;
+        height: 80px;
+        line-height: 60px;
+        text-align: center;
+        background-color: $theme-color;
+        border-radius: 999px;
+        border: 10px solid $smoke-color2;
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        padding-left: 8px;
+        padding-top: 3px;
+    }
+    .box-title {
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+}
+@include sm {
+    .choose-feature {
+        text-align: center;
+        padding: 30px 20px;
+        .box-icon {
+            position: static;
+            margin: 0 auto 20px auto;
+            padding-top: 0;
+            padding-left: 0;
+        }
+    }
+}
+@include xs {
+    .choose-feature {
+        max-width: 100%;
+        width: 100%;
+        .box-text {
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+.img-box2 {
+    &-wrap {
+        position: absolute;
+        bottom: 0;
+        right: -30px;
+        margin-left: -40px;
+        @include xl {
+            max-width: 500px;
+        }
+    }
+    position: relative;
+    z-index: 2;
+    .img2 {
+        position: absolute;
+        top: -70px;
+        right: 10%;
+        z-index: -1;
+        animation: spin 25s linear infinite;
+    }
+}
+
+/* Why 2 ---------------------------------- */ 
+.img-box4 {
+    margin-top: -10px;
+    @include xl {
+        max-width: 520px;
+    }
+    @include lg {
+        max-width: 360px;
+    }
+}
+
+.why-feature {
+    display: flex;
+    gap: 20px;
+    max-width: 286px;
+    &:not(:last-child) {
+        margin-bottom: 50px;
+    }
+    .box-icon {
+        transform: translateY(-4px);
+    }
+    .box-title {
+        font-size: 22px;
+        color: $white-color;
+        margin-bottom: 15px;
+    }
+    .box-text {
+        color: $light-color;
+    }
+    &-right {
+        text-align: right;
+        .why-feature {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+@include sm {
+    .why-feature {
+        flex-direction: column !important;
+        text-align: center;
+        max-width: 230px;
+    }
+}
+
+@include xs {
+    .why-feature {
+        &-right {
+            margin-top: 50px;
+        }
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@include md {
+    .why-sec2 {
+        background-position: left center;
+        background-size: 300% 100%;
+    }
+}
+
+.why-sec3 {
+    max-width: 1800px;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    @include md {
+        border-radius: 20px;
+    }
+}

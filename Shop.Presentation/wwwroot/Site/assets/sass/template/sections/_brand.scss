@@ -1,0 +1,31 @@
+/* Brand 1 ---------------------------------- */
+.brand-box {
+    display: grid;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    min-height: 132px;
+    filter: grayscale(1) invert(0.3) brightness(1.4);
+    transition: 0.4s ease-in-out;
+    &:hover {
+        filter: none;
+    }
+}
+/* Brand 2 ---------------------------------- */
+.brand-card {
+    display: grid;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    min-height: 132px;
+}
+.brand-sec2 {
+    padding-top: 65px;
+    padding-bottom: 200px;
+    @include xl {
+        padding-bottom: 150px;
+    }
+    @include sm {
+        padding-bottom: 110px;
+    }
+}

@@ -1,0 +1,124 @@
+﻿@addTagHelper *, LazZiya.TagHelpers
+@using Shop.Application.Services.Product.Queries.GetProductForAdmin;
+@model ProductForAdminDto;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container bg-white p-5 shadow rounded">
+    <div class="card-header">
+        <h3 class="card-title" style="display:inline-block">لیست محصولات</h3>
+        <div class="input-group input-group-sm" style="width: 150px; float:left;">
+            <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
+            <div class="input-group-append">
+                <button type="submit" onclick="Searchkey()" class="btn btn-default"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td>شماره محصول</td>
+                    <td>نام محصول</td>
+                    <td>دسته بندی</td>
+                    <td>قیمت</td>
+                    <td>موجودی</td>
+                    <td></td>
+                </tr>
+                @foreach (var item in Model.Products)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Category</td>
+                        <td>@item.Price.ToString("n0")</td>
+                        <td>@item.Inventory</td>
+                        <td>
+                            <a href="~/Product/Details/@item.Id" class="btn btn-info">اطلاعات بیشتر</a>
+                            <button class="btn btn-danger" type="button" onclick="DeleteProduct('@item.Id')">حذف</button>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /.card-body -->
+    <div class="text-ceenter">
+        <paging total-records="Model.RowCount"
+        page-no="Model.CurrentPage"
+        page-size="Model.PageSize"
+        show-prev-next="true"
+        show-total-pages="false"
+        show-total-recordes="false"
+        show-page-size-nav="true"
+        show-first-numbered-page="true"
+        show-last-numbered-page="true"
+        query-string-key-page-no="Page"
+        query-string-key-page-size="PageSize"
+        gap-size=""> 
+
+        </paging>
+    </div>
+</div>
+
+@section Scripts {
+    <link href="~/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+        function DeleteProduct(ProductId) {
+            swal.fire({
+                title: 'حذف محصول',
+                text: "آیا از حذف محصول اطمینان دارید؟",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#7cacbe',
+                confirmButtonText: 'بله، محصول حذف شود',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+                    var postData = {
+                        'ProductId': ProductId,
+                    };
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: "POST",
+                        url: "Delete",
+                        data: postData,
+                        success: function (data) {
+                            if (data.isSuccess) {
+                                swal.fire(
+                                    'موفق!',
+                                    data.message,
+                                    'success'
+                                ).then(function () {
+                                    location.reload();
+                                });
+                            } else {
+                                swal.fire(
+                                    'هشدار!',
+                                    data.message,
+                                    'warning'
+                                );
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            swal.fire(
+                                'خطا!',
+                                xhr.responseText,
+                                'error'
+                            );
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+}

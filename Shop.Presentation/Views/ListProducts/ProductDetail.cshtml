@@ -1,0 +1,392 @@
+﻿@using Shop.Application.Services.Product.Queries.GetDetailProductForSite;
+@model ProductDetailForSiteDto;
+@{
+    ViewData["Title"] = "جزئیات محصول";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int index_image = 0;
+}
+<style>
+    .product-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .gallery-thumbnails {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+        .gallery-thumbnails img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+            .gallery-thumbnails img.active {
+                border-color: #007bff;
+            }
+
+    .gallery-main {
+        text-align: center;
+    }
+
+        .gallery-main img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+</style>
+<div class="breadcumb-wrapper background-image" style="background-image: @Url.Content("site/assets/img/bg/breadcumb-bg.jpg");">
+    <div class="container">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">جزئیات محصول</h1>
+            <ul class="breadcumb-menu">
+                <li><a href="home-organic-farm.html">صفحه اصلی</a></li>
+                <li>جزئیات محصول</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<section class="product-details space-top space-extra-bottom">
+    <div class="container">
+        <div class="row gx-60">
+            <div class="col-lg-6">
+                <div class="product-gallery">
+                    <div class="gallery-thumbnails">
+                         @if (Model.ImageSrc != null && Model.ImageSrc.Any()) 
+                        {
+                            @foreach (var image in Model.ImageSrc)
+                            {
+                                if (index_image == 0)
+                                {
+                                    <img src="/@image" alt="@Model.Title" class="active" onclick="showImage('@image')">
+
+                                }else
+                                {
+                                    <img src="/@image" alt="@Model.Title" onclick="showImage('@image')">
+
+                                }                             
+                            }
+                        }
+                        else
+                        {
+                            <img src="/defualt-image.png" alt="@Model.Title">
+
+                            
+                        }
+                    </div>
+                    <div class="gallery-main">
+                        <img id="mainImage" src="/@Model.ImageSrc.FirstOrDefault()" alt="Main Image">
+                    </div>
+                </div> 
+         
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <div class="product-about">
+                    <p class="price">@Model.Price.ToString("n0") تومان</p>
+                <h2 class="product-title">@Model.Title</h2>
+                    <div class="product-rating">
+                        <div role="img">
+                            @{
+                                Random rd = new Random();
+                                int rd1 = rd.Next(0, 5);
+                            }
+
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= rd1)
+                                {
+                                    <i class="fas fa-star filled"></i>
+                                }
+                                else
+                                {
+                                    <i class="far fa-star"></i>
+                                }
+                            }
+                        </div>                        <a href="shop-details.html" class="woocommerce-review-link">(<span class="count">4</span>نظرات مشتریان)</a>
+                    </div>
+                    <div class="mt-2 link-inherit"><p><strong class="text-title me-3">موجودی : @Model.Inventory</strong>در انبار</span></p></div>
+                    <div class="actions">
+                        <div class="quantity">
+                            <input type="number" class="qty-input" step="1" min="1" max="100" name="quantity" value="1" title="Qty"><button class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i></button><button class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i></button>
+                        </div>
+                        <a href="~/cart/AddToCart?ProductId=@Model.Id" class="th-btn">به سبد خرید اضافه کنید</a><a href="~/cart/AddToCart?ProductId=@Model.Id" class="icon-btn"><i class="far fa-heart"></i></a>
+                    </div>
+                    <div class="product_meta">
+                        <span class="sku_wrapper"><span class="sku"><strong> دسته بندی : @Model.Category</strong></span>
+                        
+                        </div>
+                        <hr />
+                            <table style="text-align:center">
+                                <thead>
+                        <td><strong>ویژگی</strong></td>
+                                    <td><strong>مقدار</strong></td>
+                                </thead>
+                        @foreach (var item in Model.Features)
+                        {
+                                        <tr>
+                                            <td>@item.DisplayText</td>
+                                            <td>  @item.Value</td>
+                                        </tr>
+                        }
+                                </table>
+                   
+            </div>
+        </div>
+        <ul class="nav product-tab-style1" id="productTab" role="tablist">
+            <li class="nav-item" role="presentation"><a class="nav-link th-btn active" id="description-tab" data-bs-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">توضیحات محصول</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link th-btn" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">نظرات مشتریان</a></li>
+        </ul>
+        <div class="tab-content" id="productTabContent">
+            <div class="tab-pane fade active show" id="description" role="tabpanel" aria-labelledby="description-tab">
+               <p>@Model.Description</p>
+            </div>
+            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                <div class="woocommerce-Reviews">
+                    <div class="th-comments-wrap ">
+                        <ul class="comment-list" style="position: relative; height: 0px;">
+                            <li class="review th-comment-item" style="position: absolute; left: 0px; top: 0px;">
+                                <div class="th-post-comment">
+                                    <div class="comment-avater"><img src="assets/img/blog/comment-author-1.jpg" alt="Comment Author"></div>
+                                    <div class="comment-content">
+                                        <h4 class="name">آدام جان</h4>
+                                        <span class="commented-on"><i class="far fa-calendar"></i>22 آوریل 2023</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                        <p class="text">این محصول بسیار با کیفیت است و من عاشق این سیستم کار و سرعت هستم.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="review th-comment-item" style="position: absolute; left: 637px; top: 0px; transition-property: opacity, transform; transition-duration: 0.4s; transition-delay: 0ms; transform: translate3d(-637px, 0px, 0px);">
+                                <div class="th-post-comment">
+                                    <div class="comment-avater"><img src="assets/img/blog/comment-author-2.jpg" alt="Comment Author"></div>
+                                    <div class="comment-content">
+                                        <h4 class="name">جاسکتین داکن</h4>
+                                        <span class="commented-on"><i class="far fa-calendar"></i>26 آوریل 2023</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                        <p class="text">آنها محصول را در چند زمان تحویل دادند. کیفیت محصول نیز بسیار خوب است.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="review th-comment-item" style="position: absolute; left: 0px; top: 212.984px; transition-property: opacity, transform; transition-duration: 0.4s; transition-delay: 0ms; transform: translate3d(0px, -212.984px, 0px);">
+                                <div class="th-post-comment">
+                                    <div class="comment-avater"><img src="assets/img/blog/comment-author-3.jpg" alt="Comment Author"></div>
+                                    <div class="comment-content">
+                                        <h4 class="name">جکلین جولای</h4>
+                                        <span class="commented-on"><i class="far fa-calendar"></i>26 آوریل 2023</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                        <p class="text">محصول و خدمات آنها بسیار راضی کننده است. من به شدت خدماتشان را توصیه می کنم.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="review th-comment-item" style="position: absolute; left: 637px; top: 212.984px; transition-property: opacity, transform; transition-duration: 0.4s; transition-delay: 0ms; transform: translate3d(-637px, -212.984px, 0px);">
+                                <div class="th-post-comment">
+                                    <div class="comment-avater"><img src="assets/img/blog/comment-author-4.jpg" alt="Comment Author"></div>
+                                    <div class="comment-content">
+                                        <h4 class="name">ادیسون اسمیت</h4>
+                                        <span class="commented-on"><i class="far fa-calendar"></i>26 آوریل 2023</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                        <p class="text">من فقط عاشق این محصول هستم. خدمات آنها نیز بسیار خوب است شما همچنین می توانید امتحان کنید.</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="th-comment-form ">
+                        <div class="form-title"><h3 class="blog-inner-title ">یک بررسی اضافه کنید</h3></div>
+                        <div class="row">
+                            <div class="form-group rating-select d-flex align-items-center">
+                                <label>امتیاز شما</label><p class="stars"><span><a class="star-1" href="#">1</a><a class="star-2" href="#">2</a><a class="star-3" href="#">3</a><a class="star-4" href="#">4</a><a class="star-5" href="#">5</a></span></p>
+                            </div>
+                            <div class="col-12 form-group">
+<textarea placeholder="یک پیام بنویس" class="form-control"></textarea><i class="text-title far fa-pencil-alt"></i>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" placeholder="اسم شما" class="form-control"><i class="text-title far fa-user"></i>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" placeholder="ایمیل شما" class="form-control"><i class="text-title far fa-envelope"></i>
+                            </div>
+                            <div class="col-12 form-group">
+                                <input id="reviewcheck" name="reviewcheck" type="checkbox"><label for="reviewcheck">برای دفعه بعد که نظر می دهم نام، ایمیل و وب سایت من را در این مرورگر ذخیره کنید.<span class="checkmark"></span></label>
+                            </div>
+                            <div class="col-12 form-group mb-0"><button class="th-btn">ارسال بررسی</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="space-extra-top mb-30">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-auto"><h2 class="sec-title text-center">محصولات مرتبط</h2></div>
+                <div class="col-md d-none d-sm-block"><hr class="title-line"></div>
+                <div class="col-md-auto d-none d-md-block">
+                    <div class="sec-btn">
+                        <div class="icon-box">
+                            <button data-slider-prev="#productSlider1" class="slider-arrow default"><i class="far fa-arrow-left"></i></button><button data-slider-next="#productSlider1" class="slider-arrow default"><i class="far fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper th-slider has-shadow swiper-initialized swiper-horizontal swiper-rtl swiper-backface-hidden" id="productSlider1" data-slider-options="{&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:1},&quot;576&quot;:{&quot;slidesPerView&quot;:&quot;2&quot;},&quot;768&quot;:{&quot;slidesPerView&quot;:&quot;2&quot;},&quot;992&quot;:{&quot;slidesPerView&quot;:&quot;3&quot;},&quot;1200&quot;:{&quot;slidesPerView&quot;:&quot;4&quot;}}}">
+                <div class="swiper-wrapper" id="swiper-wrapper-f31e9a81320cc1073" aria-live="off" style="transition-duration: 0ms; transform: translate3d(1800px, 0px, 0px); transition-delay: 0ms;">
+
+
+
+
+
+
+
+
+                    <div class="swiper-slide" role="group" aria-label="7 / 8" style="width: 336px; margin-left: 24px;" data-swiper-slide-index="6">
+                        <div class="th-product product-grid">
+                            <div class="product-img">
+                                <img src="assets/img/product/product_1_7.jpg" alt="Product Image"><span class="product-tag">جدید</span><div class="actions">
+                                    <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a><a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <a href="shop-details.html" class="product-category">میوه های تازه</a><h3 class="product-title"><a href="shop-details.html">شش موز رسیده</a></h3>
+                                <span class="price">$232.85</span><div class="woocommerce-product-rating">
+                                    <span class="count">(120 Reviews)</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="swiper-slide" role="group" aria-label="8 / 8" style="width: 336px; margin-left: 24px;" data-swiper-slide-index="7">
+                        <div class="th-product product-grid">
+                            <div class="product-img">
+                                <img src="assets/img/product/product_1_8.jpg" alt="Product Image"><span class="product-tag">داغ</span><div class="actions">
+                                    <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a><a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <a href="shop-details.html" class="product-category">گوشت تازه</a><h3 class="product-title"><a href="shop-details.html">گوشت گاو دنده سوسیس</a></h3>
+                                <span class="price">$30.85</span><div class="woocommerce-product-rating">
+                                    <span class="count">(120 Reviews)</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="swiper-slide" role="group" aria-label="1 / 8" style="width: 336px; margin-left: 24px;" data-swiper-slide-index="0">
+                        <div class="th-product product-grid">
+                            <div class="product-img">
+                                <img src="assets/img/product/product_1_1.jpg" alt="Product Image"><span class="product-tag">داغ</span><div class="actions">
+                                    <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a><a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <a href="shop-details.html" class="product-category">میوه های تازه</a><h3 class="product-title"><a href="shop-details.html">میوه سیب بوسکو</a></h3>
+                                <span class="price">$177.85</span><div class="woocommerce-product-rating">
+                                    <span class="count">(120 Reviews)</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="swiper-slide" role="group" aria-label="2 / 8" style="width: 336px; margin-left: 24px;" data-swiper-slide-index="1">
+                        <div class="th-product product-grid">
+                            <div class="product-img">
+                                <img src="assets/img/product/product_1_2.jpg" alt="Product Image"><span class="product-tag">جدید</span><div class="actions">
+                                    <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a><a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <a href="shop-details.html" class="product-category">سبزیجات</a><h3 class="product-title"><a href="shop-details.html">گل کلم سبز</a></h3>
+                                <span class="price">$39.85</span><div class="woocommerce-product-rating">
+                                    <span class="count">(120 Reviews)</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="swiper-slide swiper-slide-prev" role="group" aria-label="3 / 8" style="width: 336px; margin-left: 24px;" data-swiper-slide-index="2">
+                        <div class="th-product product-grid">
+                            <div class="product-img">
+                                <img src="assets/img/product/product_1_3.jpg" alt="Product Image"><span class="product-tag">داغ</span><div class="actions">
+                                    <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a><a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <a href="shop-details.html" class="product-category">سبزیجات</a><h3 class="product-title"><a href="shop-details.html">پرتقال ماندارین</a></h3>
+                                <span class="price">$96.85</span><div class="woocommerce-product-rating">
+                                    <span class="count">(120 Reviews)</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="swiper-slide swiper-slide-active" role="group" aria-label="4 / 8" style="width: 336px; margin-left: 24px;" data-swiper-slide-index="3">
+                        <div class="th-product product-grid">
+                            <div class="product-img">
+                                <img src="assets/img/product/product_1_4.jpg" alt="Product Image"><span class="product-tag">فروش</span><div class="actions">
+                                    <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a><a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <a href="shop-details.html" class="product-category">میوه های تازه</a><h3 class="product-title"><a href="shop-details.html">موسیر پیاز قرمز</a></h3>
+                                <span class="price">$08.85<del>$06.99</del></span><div class="woocommerce-product-rating">
+                                    <span class="count">(120 Reviews)</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="swiper-slide swiper-slide-next" role="group" aria-label="5 / 8" style="width: 336px; margin-left: 24px;" data-swiper-slide-index="4">
+                        <div class="th-product product-grid">
+                            <div class="product-img">
+                                <img src="assets/img/product/product_1_5.jpg" alt="Product Image"><span class="product-tag">جدید</span><div class="actions">
+                                    <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a><a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <a href="shop-details.html" class="product-category">میوه های تازه</a><h3 class="product-title"><a href="shop-details.html">آلبالو قرمز</a></h3>
+                                <span class="price">$32.85</span><div class="woocommerce-product-rating">
+                                    <span class="count">(120 Reviews)</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="swiper-slide" role="group" aria-label="6 / 8" style="width: 336px; margin-left: 24px;" data-swiper-slide-index="5">
+                        <div class="th-product product-grid">
+                            <div class="product-img">
+                                <img src="assets/img/product/product_1_6.jpg" alt="Product Image"><span class="product-tag">داغ</span><div class="actions">
+                                    <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a><a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <a href="shop-details.html" class="product-category">میوه های تازه</a><h3 class="product-title"><a href="shop-details.html">میوه های توت فرنگی</a></h3>
+                                <span class="price">$30.85</span><div class="woocommerce-product-rating">
+                                    <span class="count">(120 Reviews)</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+            <div class="d-block d-md-none mt-40 text-center">
+                <div class="icon-box">
+                    <button data-slider-prev="#productSlider1" class="slider-arrow default"><i class="far fa-arrow-left"></i></button><button data-slider-next="#productSlider1" class="slider-arrow default"><i class="far fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script>
+        function showImage(imageSrc) {
+            var mainImage = document.getElementById('mainImage');
+            var thumbnails = document.querySelectorAll('.gallery-thumbnails img');
+
+            // تغییر تصویر اصلی
+            mainImage.src = imageSrc;
+
+            // تغییر فعال بودن تصویر کوچک
+            thumbnails.forEach(function (thumbnail) {
+                thumbnail.classList.remove('active');
+            });
+
+            var activeThumbnail = Array.from(thumbnails).find(thumbnail => thumbnail.src.includes(imageSrc));
+            if (activeThumbnail) {
+                activeThumbnail.classList.add('active');
+            }
+        }
+    </script>
+
+
+}

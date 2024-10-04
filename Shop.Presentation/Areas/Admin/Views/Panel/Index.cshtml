@@ -1,0 +1,247 @@
+﻿@addTagHelper *, LazZiya.TagHelpers
+@using Shop.Application.Services.Users.Queries.GetUsers;
+@model ResultGetUserDto;
+@{
+    ViewData["Title"] = "نمایش لیست کاربران";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container bg-white p-5 shadow rounded">
+    <div class="card-header">
+        <h3 class="card-title" style="display:inline-block">لیست کاربران</h3>
+        <div class="input-group input-group-sm" style="width: 150px; float:left;">
+            <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
+            <div class="input-group-append">
+                <button type="submit" onclick="Searchkey()" class="btn btn-default"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>شماره کاربری</th>
+                    <th>نام و نام خانوادگی</th>
+                    <th>ایمیل</th>
+                </tr>
+                @foreach (var item in Model.Users)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Fullname</td>
+                        <td>@item.Email</td>
+                        <td>
+                            <button class="btn btn-info" type="button" onclick="UpdateUser('@item.Id','@item.Fullname','@item.Email')"> ویرایش</button>
+                            <button class="btn btn-danger" type="button" onclick="DeleteUser('@item.Id')">حذف</button>
+                            @if (item.IsActive)
+                            {
+                                <button class="btn btn-warning" type="button" onclick="UserStatusChange('@item.Id')">غیرفعال کردن</button>
+                            }else
+                            {
+                                <button class="btn btn-warning" type="button" onclick="UserStatusChange('@item.Id')">فعال کردن</button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /.card-body -->
+   <div class="  text-center">
+        <paging total-records="Model.RowCount"
+                page-no="Model.CurrentPage"
+                page-size="Model.PageSize"
+                show-prev-next="true"
+                show-total-pages="false"
+                show-total-records="false"
+                show-page-size-nav="true"
+                show-first-numbered-page="true"
+                show-last-numbered-page="true"
+                query-string-key-page-no="Page"
+                query-string-key-page-size="PageSize"
+                gap-size="2">
+        </paging>
+   </div>
+</div>
+@section Scripts {
+    <link href="~/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/sweetalert2/sweetalert2.min.js"></script>
+
+    <script>
+        function Searchkey() {
+            const searchkey = $("#table_search").val();
+            console.log(searchkey);
+        }
+
+        function UserStatusChange(UserId) {
+            swal.fire({
+                title: "تغییر وضعیت کاربر",
+                text: "آیا از تغییر وضعیت کاربر اطمینان دارید؟",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#7cacbe',
+                confirmButtonText: 'بله، تغییر وضعیت انجام شود',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+                    var postData = {
+                        'UserId': UserId,
+                    };
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: "POST",
+                        url: "ChangeStatusUser",
+                        data: postData,
+                        success: function (data) {
+                            if (data.isSuccess) {
+                                swal.fire(
+                                    'موفق!',
+                                    data.message,
+                                    'success'
+                                ).then(function () {
+                                    location.reload();
+                                });
+                            } else {
+                                swal.fire(
+                                    'هشدار!',
+                                    data.message,
+                                    'warning'
+                                );
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            swal.fire(
+                                'خطا!',
+                                'خطایی در تغییر وضعیت کاربر رخ داد.',
+                                'error'
+                            );
+                        }
+                    });
+                }
+            });
+        }
+
+        function DeleteUser(UserId) {
+            swal.fire({
+                title: 'حذف کاربر',
+                text: "آیا از حذف کاربر اطمینان دارید؟",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#7cacbe',
+                confirmButtonText: 'بله، کاربر حذف شود',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+                    var postData = {
+                        'UserId': UserId,
+                    };
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: "POST",
+                        url: "Delete",
+                        data: postData,
+                        success: function (data) {
+                            if (data.isSuccess) {
+                                swal.fire(
+                                    'موفق!',
+                                    data.message,
+                                    'success'
+                                ).then(function () {
+                                    location.reload();
+                                });
+                            } else {
+                                swal.fire(
+                                    'هشدار!',
+                                    data.message,
+                                    'warning'
+                                );
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            swal.fire(
+                                'خطا!',
+                                'خطایی در حذف کاربر رخ داد.',
+                                'error'
+                            );
+                        }
+                    });
+                }
+            });
+        }
+
+        function UpdateUser(UserId, Fullname, Email) {
+            swal.fire({
+                title: 'به روز رسانی کاربر',
+                html: `
+                        <input type="text" id="fullname" class="swal2-input" value="${Fullname}" placeholder="نام کامل کاربر">
+                        <input type="email" id="email" class="swal2-input" value="${Email}" placeholder="پست الکترونیک کاربر">
+                        <input type="password" id="password" class="swal2-input" placeholder="رمزعبور کاربر">
+                    `,
+                showCancelButton: true,
+                icon: 'info',
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#7cacbe',
+                confirmButtonText: 'به روز رسانی',
+                cancelButtonText: 'لغو عملیات',
+                preConfirm: () => {
+                    const fullname = Swal.getPopup().querySelector('#fullname').value;
+                    const email = Swal.getPopup().querySelector('#email').value;
+                    const password = Swal.getPopup().querySelector('#password').value;
+                    if (!fullname || !email) {
+                        Swal.showValidationMessage('لطفا نام کامل و پست الکترونیک کاربر را وارد نمایید.');
+                    }
+                    return { userid: UserId, fullname: fullname, email: email, password: password };
+                }
+            }).then((result) => {
+                if (result.value) {
+                    var postData = {
+                        'UserId': result.value.userid,
+                        'Fullname': result.value.fullname, // Use result.value.fullname
+                        'Email': result.value.email,       // Use result.value.email
+                        'PasswordHash': result.value.password  // Use result.value.password
+                    };
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: 'POST',
+                        url: 'Update',
+                        data: postData,
+                        success: function (data) {
+                            if (data.isSuccess) {
+                                swal.fire(
+                                    'موفق!',
+                                    data.message,
+                                    'success'
+                                ).then(function () {
+                                    location.reload();
+                                });
+                            } else {
+                                swal.fire(
+                                    'هشدار!',
+                                    data.message,
+                                    'warning'
+                                );
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            swal.fire(
+                                'خطا!',
+                                'خطایی در به روز رسانی کاربر رخ داد.',
+                                'error'
+                            );
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+
+}
+

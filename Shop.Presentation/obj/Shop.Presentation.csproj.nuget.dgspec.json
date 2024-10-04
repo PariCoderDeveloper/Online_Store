@@ -1,0 +1,423 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Presentation\\Shop.Presentation.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Application\\Shop.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Application\\Shop.Application.csproj",
+        "projectName": "Shop.Application",
+        "projectPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Application\\Shop.Application.csproj",
+        "packagesPath": "C:\\Users\\Unknwoun\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Unknwoun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Ccommon\\Shop.Ccommon.csproj": {
+                "projectPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Ccommon\\Shop.Ccommon.csproj"
+              },
+              "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Domain\\Shop.Domain.csproj": {
+                "projectPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Domain\\Shop.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Hosting": {
+              "target": "Package",
+              "version": "[2.2.7, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0-preview.4.24267.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Ccommon\\Shop.Ccommon.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Ccommon\\Shop.Ccommon.csproj",
+        "projectName": "Shop.Ccommon",
+        "projectPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Ccommon\\Shop.Ccommon.csproj",
+        "packagesPath": "C:\\Users\\Unknwoun\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Ccommon\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Unknwoun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Cryptography.KeyDerivation": {
+              "target": "Package",
+              "version": "[9.0.0-preview.5.24306.11, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[9.0.0-preview.5.24306.11, )"
+            },
+            "Microsoft.TestPlatform.TestHost": {
+              "target": "Package",
+              "version": "[17.10.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Domain\\Shop.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Domain\\Shop.Domain.csproj",
+        "projectName": "Shop.Domain",
+        "projectPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Domain\\Shop.Domain.csproj",
+        "packagesPath": "C:\\Users\\Unknwoun\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Unknwoun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Ccommon\\Shop.Ccommon.csproj": {
+                "projectPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Ccommon\\Shop.Ccommon.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Persistence\\Shop.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Persistence\\Shop.Persistence.csproj",
+        "projectName": "Shop.Persistence",
+        "projectPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Persistence\\Shop.Persistence.csproj",
+        "packagesPath": "C:\\Users\\Unknwoun\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Unknwoun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Application\\Shop.Application.csproj": {
+                "projectPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Application\\Shop.Application.csproj"
+              },
+              "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Domain\\Shop.Domain.csproj": {
+                "projectPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Domain\\Shop.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0-preview.4.24267.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[9.0.0-preview.4.24267.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.0-preview.4.24267.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0-preview.4.24267.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Presentation\\Shop.Presentation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Presentation\\Shop.Presentation.csproj",
+        "projectName": "Shop.Presentation",
+        "projectPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Presentation\\Shop.Presentation.csproj",
+        "packagesPath": "C:\\Users\\Unknwoun\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Presentation\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Unknwoun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Application\\Shop.Application.csproj": {
+                "projectPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Application\\Shop.Application.csproj"
+              },
+              "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Persistence\\Shop.Persistence.csproj": {
+                "projectPath": "C:\\Users\\Unknwoun\\Downloads\\ASP.NET\\Session 2\\Project\\Sample2\\BlankSolution\\Shop.Persistence\\Shop.Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "LazZiya.TagHelpers": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0-preview.4.24267.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0-preview.4.24267.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.0-preview.4.24267.1, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+.widget_nav_menu,
+.widget_meta,
+.widget_pages,
+.widget_archive,
+.widget_categories,
+.wp-block-categories {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 0 0;
+    }
+    a {
+        display: block;
+        background-color: transparent;
+        margin: 0;
+        padding: 15px 45px 15px 33px;
+        font-size: 16px;
+        line-height: 1.313;
+        color: $body-color;
+        border-radius: 0;
+        border-bottom: 1px solid $border-color;
+        transition: 0.4s ease-in-out;
+        &::before {
+            content: url('data:image/svg+xml,<svg width="26" height="16" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.83461e-05 0C2.83461e-05 0 18.1165 0.165307 17.0921 13.7794C15.4664 11.9138 12.2262 8.53687 8.0617 5.95102C8.0617 5.95102 14.0411 11.6541 16.1234 15.8221L16.0788 15.8576C16.09 15.8694 4.62101 18.5615 2.83461e-05 0Z" fill="%2354595F"/><path d="M26 6.76587C26 6.76587 16.6578 8.02928 17.9717 14.9839C18.7066 13.9213 20.1876 11.9612 22.1807 10.3554C22.1807 10.3554 19.4193 13.6851 18.5842 15.9758L18.6064 15.9876C18.6176 15.9876 24.6861 16.637 26 6.76587Z" fill="%2354595F"/><path d="M20.7561 2.83374C20.7561 2.83374 15.8568 5.32514 17.7608 8.87922C17.9835 8.14715 18.4512 6.80108 19.2752 5.53767C19.2752 5.53767 18.3287 7.89919 18.2731 9.30429H18.2953C18.2842 9.3161 21.7249 8.50138 20.7561 2.83374Z" fill="%2354595F"/></svg>');
+            position: absolute;
+            left: 0;
+            top: 17px;
+            font-family: $icon-font;
+            font-weight: 500;
+            transition: 0.4s ease-in-out;
+        }
+    }
+
+    li {
+        display: block;
+        position: relative;
+        > span {
+            color: $body-color;
+            text-align: center;
+            position: absolute;
+            right: 0;
+            top: 14px;
+            transition: all ease 0.4s;
+            pointer-events: none;
+            min-width: 20px;
+            text-align: right;
+        }
+    }
+    .menu,
+    > ul {
+        > li {
+            &:last-child {
+                > a {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+     
+    a {
+        &:hover {
+            color: $theme-color;
+            &::before {
+                content: url('data:image/svg+xml,<svg width="26" height="16" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.83461e-05 0C2.83461e-05 0 18.1165 0.165307 17.0921 13.7794C15.4664 11.9138 12.2262 8.53687 8.0617 5.95102C8.0617 5.95102 14.0411 11.6541 16.1234 15.8221L16.0788 15.8576C16.09 15.8694 4.62101 18.5615 2.83461e-05 0Z" fill="%23017D03"/><path d="M26 6.76587C26 6.76587 16.6578 8.02928 17.9717 14.9839C18.7066 13.9213 20.1876 11.9612 22.1807 10.3554C22.1807 10.3554 19.4193 13.6851 18.5842 15.9758L18.6064 15.9876C18.6176 15.9876 24.6861 16.637 26 6.76587Z" fill="%23017D03"/><path d="M20.7561 2.83374C20.7561 2.83374 15.8568 5.32514 17.7608 8.87922C17.9835 8.14715 18.4512 6.80108 19.2752 5.53767C19.2752 5.53767 18.3287 7.89919 18.2731 9.30429H18.2953C18.2842 9.3161 21.7249 8.50138 20.7561 2.83374Z" fill="%23017D03"/></svg>');
+            }
+            ~ span {
+                color: $theme-color;
+            }
+        }
+    }
+
+    .sub-menu,
+    .children {
+        margin-left: 10px;
+    }
+}
+
+.wp-block-categories {
+    list-style: none;
+    padding: 0;
+    > li {
+        &:last-child {
+            > a {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.widget_nav_menu,
+.widget_meta,
+.widget_pages {
+    a {
+        padding-right: 20px;
+    }
+}
+
+.widget_nav_menu {
+    .sub-menu {
+        margin-left: 10px;
+    }
+}
+
+.wp-block-archives {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+
+    a:not(:hover) {
+        color: inherit;
+    }
+}
+
+.th-blog ul.wp-block-archives li {
+    margin: 5px 0;
+}

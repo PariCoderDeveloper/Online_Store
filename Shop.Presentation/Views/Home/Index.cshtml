@@ -1,0 +1,638 @@
+﻿@using Shop.Presentation.ViewModels.HomePageViewModel;
+@model HomeViewModel;
+@{
+    ViewData["Title"] = "صفحه اصلی";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="">
+    <div class="swiper th-slider swiper-fade" id="heroSlider3" data-slider-options='{"effect":"fade"}'>
+        <div class="swiper-wrapper">
+            @foreach (var slide in Model.Slider)
+            {
+                <div class="swiper-slide" role="group" aria-label="Slide">
+                    <div class="hero-inner background-image" style="background-image: url('@slide.Src');">
+                        <div class="hero-style3">
+                            <span class="hero-subtitle slideinup">@slide.SubTitle</span>
+                            <h1 class="hero-title2">
+                                <span class="title1 slideinup">@slide.Title</span>
+                            </h1>
+                            <p class="hero-text slideinup">@slide.Text</p>
+                            <a href="~/ListProducts/index" class="th-btn style4 slideinup">اکنون خرید کنید<i class="fas fa-chevrons-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="slider-pagination swiper-pagination-clickable swiper-pagination-bullets"></div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+</div>
+<section class="mt-4">
+    <div class="container">
+        <div class="feature-list-wrap">
+            <div class="feature-list">
+                <div class="box-icon"><img src="~/site/assets/img/icon/feature_list_1.svg" alt="icon"></div>
+                <div class="media-body">
+                    <h3 class="box-title">سیاست بازگشت</h3>
+                    <p class="box-text">تضمین بازگشت پول</p>
+                </div>
+            </div>
+            <div class="feature-list-line"></div>
+            <div class="feature-list">
+                <div class="box-icon"><img src="~/site/assets/img/icon/feature_list_2.svg" alt="icon"></div>
+                <div class="media-body">
+                    <h3 class="box-title">ارسال رایگان</h3>
+                    <p class="box-text">در تمام سفارشات بیش از 50.00 دلار</p>
+                </div>
+            </div>
+            <div class="feature-list-line"></div>
+            <div class="feature-list">
+                <div class="box-icon"><img src="~/site/assets/img/icon/feature_list_3.svg" alt="icon"></div>
+                <div class="media-body">
+                    <h3 class="box-title">فروشگاه یاب</h3>
+                    <p class="box-text">نزدیکترین فروشگاه خود را پیدا کنید</p>
+                </div>
+            </div>
+            <div class="feature-list-line"></div>
+            <div class="feature-list">
+                <div class="box-icon"><img src="~/site/assets/img/icon/feature_list_4.svg" alt="icon"></div>
+                <div class="media-body">
+                    <h3 class="box-title">پشتیبانی 24/7</h3>
+                    <p class="box-text">24 ساعت شبانه روز با ما تماس بگیرید</p>
+                </div>
+            </div>
+            <div class="feature-list-line"></div>
+        </div>
+    </div>
+</section>
+<section class="space bg-smoke2" id="category-sec" style="padding-top: 248px;">
+    <div class="container">
+        <div class="title-area text-center">
+            <span class="sub-title"><img src="~/site/assets/img/theme-img/title_icon.svg" alt="Icon">رده محصولات</span><h2 class="sec-title">خرید بر اساس طبقه بندی</h2>
+        </div>
+        <div class="swiper th-slider swiper-initialized swiper-horizontal swiper-rtl swiper-backface-hidden" data-slider-options="{&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:2},&quot;576&quot;:{&quot;slidesPerView&quot;:&quot;3&quot;},&quot;768&quot;:{&quot;slidesPerView&quot;:&quot;4&quot;},&quot;992&quot;:{&quot;slidesPerView&quot;:&quot;5&quot;},&quot;1200&quot;:{&quot;slidesPerView&quot;:&quot;6&quot;}}}">
+            <div class="swiper-wrapper" id="swiper-wrapper-2af6a08b65dfb295" aria-live="off">
+                <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 6" data-swiper-slide-index="0" style="width: 188.333px; margin-left: 24px;">
+                    <div class="category-box">
+                        <div class="box-icon"><img src="~/site/assets/img/product/category_2_1.png" alt="Image"></div>
+                        <h3 class="box-title"><a href="shop.html">میوه های تازه</a></h3>
+                        <p class="box-text">08 محصولات</p>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 6" data-swiper-slide-index="1" style="width: 188.333px; margin-left: 24px;">
+                    <div class="category-box">
+                        <div class="box-icon"><img src="~/site/assets/img/product/category_2_2.png" alt="Image"></div>
+                        <h3 class="box-title"><a href="shop.html">میوه های طبیعی</a></h3>
+                        <p class="box-text">05 محصولات</p>
+                    </div>
+                </div>
+                <div class="swiper-slide" role="group" aria-label="3 / 6" data-swiper-slide-index="2" style="width: 188.333px; margin-left: 24px;">
+                    <div class="category-box">
+                        <div class="box-icon"><img src="~/site/assets/img/product/category_2_3.png" alt="Image"></div>
+                        <h3 class="box-title"><a href="shop.html">محصولات لبنی</a></h3>
+                        <p class="box-text">04 محصولات</p>
+                    </div>
+                </div>
+                <div class="swiper-slide" role="group" aria-label="4 / 6" data-swiper-slide-index="3" style="width: 188.333px; margin-left: 24px;">
+                    <div class="category-box">
+                        <div class="box-icon"><img src="~/site/assets/img/product/category_2_4.png" alt="Image"></div>
+                        <h3 class="box-title"><a href="shop.html">چای و قهوه</a></h3>
+                        <p class="box-text">07 محصولات</p>
+                    </div>
+                </div>
+                <div class="swiper-slide" role="group" aria-label="5 / 6" data-swiper-slide-index="4" style="width: 188.333px; margin-left: 24px;">
+                    <div class="category-box">
+                        <div class="box-icon"><img src="~/site/assets/img/product/category_2_5.png" alt="Image"></div>
+                        <h3 class="box-title"><a href="shop.html">گوشت و ماهی</a></h3>
+                        <p class="box-text">10 محصول</p>
+                    </div>
+                </div>
+                <div class="swiper-slide" role="group" aria-label="6 / 6" data-swiper-slide-index="5" style="width: 188.333px; margin-left: 24px;">
+                    <div class="category-box">
+                        <div class="box-icon"><img src="~/site/assets/img/product/category_2_6.png" alt="Image"></div>
+                        <h3 class="box-title"><a href="shop.html">ماهی تازه</a></h3>
+                        <p class="box-text">07 محصولات</p>
+                    </div>
+                </div>
+            </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+    </div>
+</section>
+<section class="space arrow-wrap">
+    <div class="container">
+        <div class="row justify-content-lg-between justify-content-center align-items-end">
+            <div class="col-lg">
+                <div class="title-area text-center text-lg-start">
+                    <span class="sub-title">
+                        <img src="~/site/assets/img/theme-img/title_icon.svg" alt="Icon"> محصولات ارگانیک
+                    </span>
+                    <h2 class="sec-title">محصولات محبوب ما</h2>
+                </div>
+            </div>
+            <div class="col-auto mt-n2 mt-lg-0">
+                <div class="sec-btn">
+                    <div class="nav tab-menu1" role="tablist">
+                        <button class="tab-btn active" id="nav-one-tab" data-bs-toggle="tab" data-bs-target="#nav-one" role="tab" aria-controls="nav-one" aria-selected="true">پودری</button>
+                        <button class="tab-btn" id="nav-two-tab" data-bs-toggle="tab" data-bs-target="#nav-two" role="tab" aria-controls="nav-two" aria-selected="true">مکمل</button>
+                        <button class="tab-btn" id="nav-three-tab" data-bs-toggle="tab" data-bs-target="#nav-three" role="tab" aria-controls="nav-three" aria-selected="false">قرص</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="nav-one" role="tabpanel" aria-labelledby="nav-one-tab">
+                <div class="slider-area">
+                    <div class="swiper th-slider has-shadow productSlider1" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"4"}}}'>
+                        <div class="swiper-wrapper">
+                            @foreach (var item in Model.PapularProducts.Products)
+                            {
+                                <div class="swiper-slide">
+                                    <div class="th-product product-grid">
+                                        <div class="product-img">
+                                            @if (item.ImageSrc != null)
+                                            {
+                                                <img src="~/@item.ImageSrc" alt="@item.Name" class="img-fluid">
+                                            }
+                                            else
+                                            {
+                                            <img src="~/defualt-image.png" alt="@item.Name" class="img-fluid" />
+                                            }
+                                            <span class="product-tag">محبوب</span>
+                                            <div class="actions">
+                                                <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
+                                                <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                                                <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-content text-center">
+                                            <a href="shop-details.html" class="product-category"> برند : @item.Brand</a>
+                                            <h3 class="product-title"><a href="~/ListProducts/ProductDetail?Id=@item.Id">@item.Name</a></h3>
+                                            <span class="price">@String.Format("{0:N0}", item.Price) تومان</span>
+                                            <div class="woocommerce-product-rating">
+                                                <span class="count">@item.Star</span>
+                                                <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
+                                                    <span>دارای رتبه<strong class="rating">5.00</strong> از 5 بر اساس <span class="rating">1</span> رتبه بندی مشتری</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<section class="bg-top-center overflow-hidden space-top background-image" style="background-image: url(/site/assets/img/bg/deal_bg_2.jpg);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-md-8">
+                <div class="title-area text-center">
+                    <span class="sub-title"><img src="~/site/assets/img/theme-img/title_icon.svg" alt="Icon">عجله کن</span>
+                    <h2 class="sec-title text-white">معاملات هفته</h2>
+                    <p class="sec-text text-light">ادغام مواد آلی از طریق کمپوست، کشت پوششی و مالچ پاشی. این خاک را با مواد مغذی ضروری غنی می کند.</p>
+                </div>
+            </div>
+        </div>
+        <div class="deal-sec-area">
+            <ul class="counter-list countdown-style1 expired" data-offer-date="02/01/2024">
+                <li>
+                    <div>
+                        <div class="day count-number">00</div>
+                        <span class="count-name">روزها</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="hour count-number">00</div>
+                        <span class="count-name">ساعت ها</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="minute count-number">00</div>
+                        <span class="count-name">دقایق</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="seconds count-number">00</div>
+                        <span class="count-name">ثانیه ها</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="row gy-4 justify-content-center">
+                <div class="col-xl-3 text-xl-start text-center">
+                    <div class="offer-grid mega-hover background-image" style="background-image: url(/site/assets/img/bg/cta_bg_4_1.jpg);">
+                        <span class="h6 box-subtitle text-white"><span class="text-theme"> 20% آنلاین</span>خاموش</span>
+                        <h3 class="box-title text-white">در حال حاضر شما دریافت کنید<br>سبزی</h3>
+                        <a href="shop-details.html" class="th-btn btn-sm style3">اکنون خرید کنید<i class="fas fa-chevrons-right ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-xl-9">
+                    <div class="row gy-4">
+                        @foreach (var item in Model.NewestProducts.Products)
+                        {
+                            <div class="col-lg-4 col-sm-6">
+                                <div class="th-product product-grid">
+                                    <div class="product-img">
+                                        @if (item.ImageSrc != null)
+                                        {
+                                            <img src="~/@item.ImageSrc" alt="@item.Name">
+                                        }
+                                        else
+                                        {
+                                            <img src="~/defualt-image.png" alt="@item.Name">
+
+                                        }
+                                        <span class="product-tag">داغ</span>
+
+                                        <div class="actions">
+                                            <a href="~/ListProducts/ProductDetail?Id=@item.Id" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
+                                            <a href="~/ListProducts/ProductDetail?Id=@item.Id" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                                            <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <a href="~/ListProducts/ProductDetail?Id=@item.Id" class="product-category">برند : @item.Brand</a>
+                                        <h3 class="product-title"><a href="~/ListProducts/ProductDetail?Id=@item.Id">@item.Name</a></h3>
+                                        <span class="price">@string.Format("{0:N0}",item.Price) تومان</span>
+                                        <div class="woocommerce-product-rating">
+                                            <span class="count">(120 Reviews)</span>
+                                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
+                                                <span>دارای رتبه<strong class="rating">@item</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                                           </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="space">
+    <div class="container z-index-common">
+        <div class="row gy-30">
+            <div class="col-xl-6">
+                <div class="offer-block mega-hover" style="background-color: rgb(243, 238, 193);">
+                    <div class="box-img"><img src="~/site/assets/img/bg/cta_5_1.png" alt="Image"></div>
+                    <span class="h6 box-subtitle">تازه از مزرعه ما: موز</span><div class="box-content" data-border="#F3EEC1" style="--th-border-color: #F3EEC1;">
+                        <span class="box-heading">فقط ارگانیک</span><h3 class="box-title">
+                            رنگ زرد<b>موز</b>
+                        </h3>
+                        <p class="box-text">30% تخفیف برای این ماه</p>
+                        <a href="shop-details.html" class="th-btn btn-sm">اکنون خرید کنید<i class="fas fa-chevrons-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="offer-block mega-hover" style="background-color: rgb(209, 237, 210);">
+                    <div class="box-img"><img src="~/site/assets/img/bg/cta_5_2.png" alt="Image"></div>
+                    <span class="h6 box-subtitle">تازه از مزرعه ما: پاپایا</span><div class="box-content" data-border="#D1EDD2" style="--th-border-color: #D1EDD2;">
+                        <span class="box-heading">فقط ارگانیک</span><h3 class="box-title">
+                            رسیده<b>پاپایا</b>
+                        </h3>
+                        <p class="box-text">30% تخفیف برای این ماه</p>
+                        <a href="shop-details.html" class="th-btn btn-sm">اکنون خرید کنید<i class="fas fa-chevrons-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="space-bottom">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-xl-3 col-lg-4 col-md-6 mb-40 mb-lg-0">
+                <div class="offer-grid mega-hover background-image" style="background-image: url(/site/assets/img/bg/cta_bg_4_2.jpg);">
+                    <span class="h6 box-subtitle fs-16 text-white"><span class="text-theme2">100%</span>ارگانیک و تازه</span><h3 class="box-title text-white">سبزتر برو و<br>غذاهای سالم</h3>
+                    <a href="shop-details.html" class="th-btn btn-sm style4">اکنون خرید کنید<i class="fas fa-chevrons-right ms-2"></i></a>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-6">
+                <div class="row justify-content-lg-between justify-content-center align-items-center">
+                    <div class="col-md text-center text-md-start"><h2 class="sec-title mb-30">ارزان ترین محصولات</h2></div>
+                    <div class="col-md-auto d-none d-lg-inline-block">
+                        <div class="sec-btn mb-35">
+                            <div class="icon-box">
+                                <button data-slider-prev="#productSlider7" class="slider-arrow default"><i class="far fa-arrow-left"></i></button><button data-slider-next="#productSlider7" class="slider-arrow default"><i class="far fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper th-slider has-shadow swiper-initialized swiper-horizontal swiper-rtl swiper-backface-hidden" id="productSlider7" data-slider-options="{&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:1},&quot;576&quot;:{&quot;slidesPerView&quot;:&quot;2&quot;},&quot;768&quot;:{&quot;slidesPerView&quot;:&quot;1&quot;},&quot;992&quot;:{&quot;slidesPerView&quot;:&quot;2&quot;},&quot;1200&quot;:{&quot;slidesPerView&quot;:&quot;3&quot;}}}">
+                    <div class="swiper-wrapper" id="swiper-wrapper-b9b6fb4ed67f28f10" aria-live="off" style="transition-duration: 0ms; transform: translate3d(956px, 0px, 0px); transition-delay: 0ms;">
+                       @foreach (var item in Model.CheapestProducts.Products)
+                        {
+                            <div class="swiper-slide" role="group" aria-label="5 / 8" data-swiper-slide-index="4" style="width: 294.667px; margin-left: 24px;">
+                            <div class="th-product product-grid">
+                                <div class="product-img">
+                                    @if (item.ImageSrc != null)
+                                        {
+                                            <img src="~/@item.ImageSrc" alt="@item.Name">
+                                        }
+                                        else
+                                        {
+                                            <img src="~/defualt-image.png" alt="@item.Name">
+                                        }
+                                        <span class="product-tag">ارزان ترین</span><div class="actions">
+                                        <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a><a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                        <a href="shop-details.html" class="product-category">میوه های تازه</a><h3 class="product-title"><a href="~/ListProducts/ProductDetail/@item.Id">@item.Name</a></h3>
+                                    <span class="price">@string.Format("{0:N0}",item.Price) تومان</span><div class="woocommerce-product-rating">
+                                        <span class="count">(120 Reviews)</span><div class="star-rating" role="img" aria-label="@item.Star"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                       <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="brand-sec2 background-image" style="background-image: url(/site/assets/img/bg/brand_bg_1.jpg);">
+    <div class="container th-container">
+        <div class="swiper th-slider swiper-initialized swiper-horizontal swiper-rtl" id="blogSlider1" data-slider-options="{&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:2},&quot;576&quot;:{&quot;slidesPerView&quot;:&quot;2&quot;},&quot;768&quot;:{&quot;slidesPerView&quot;:&quot;3&quot;},&quot;992&quot;:{&quot;slidesPerView&quot;:&quot;4&quot;},&quot;1200&quot;:{&quot;slidesPerView&quot;:&quot;5&quot;},&quot;1400&quot;:{&quot;slidesPerView&quot;:&quot;6&quot;}}}">
+            <div class="swiper-wrapper" id="swiper-wrapper-566c8179865331101" aria-live="off" style="transition-duration: 0ms; transform: translate3d(1349px, 0px, 0px); transition-delay: 0ms;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="swiper-slide" role="group" aria-label="4 / 14" data-swiper-slide-index="3" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_8.svg" alt="Brand Logo"></div></div><div class="swiper-slide" role="group" aria-label="5 / 14" data-swiper-slide-index="4" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_5.svg" alt="Brand Logo"></div></div><div class="swiper-slide" role="group" aria-label="6 / 14" data-swiper-slide-index="5" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_6.svg" alt="Brand Logo"></div></div><div class="swiper-slide" role="group" aria-label="7 / 14" data-swiper-slide-index="6" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_7.svg" alt="Brand Logo"></div></div><div class="swiper-slide swiper-slide-prev" role="group" aria-label="8 / 14" data-swiper-slide-index="7" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_1.svg" alt="Brand Logo"></div></div><div class="swiper-slide swiper-slide-active" role="group" aria-label="9 / 14" data-swiper-slide-index="8" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_2.svg" alt="Brand Logo"></div></div><div class="swiper-slide swiper-slide-next" role="group" aria-label="10 / 14" data-swiper-slide-index="9" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_3.svg" alt="Brand Logo"></div></div><div class="swiper-slide" role="group" aria-label="11 / 14" data-swiper-slide-index="10" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_8.svg" alt="Brand Logo"></div></div><div class="swiper-slide" role="group" aria-label="12 / 14" data-swiper-slide-index="11" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_5.svg" alt="Brand Logo"></div></div><div class="swiper-slide" role="group" aria-label="13 / 14" data-swiper-slide-index="12" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_6.svg" alt="Brand Logo"></div></div><div class="swiper-slide" role="group" aria-label="14 / 14" data-swiper-slide-index="13" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_7.svg" alt="Brand Logo"></div></div><div class="swiper-slide" role="group" aria-label="1 / 14" data-swiper-slide-index="0" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_1.svg" alt="Brand Logo"></div></div><div class="swiper-slide" role="group" aria-label="2 / 14" data-swiper-slide-index="1" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_2.svg" alt="Brand Logo"></div></div><div class="swiper-slide" role="group" aria-label="3 / 14" data-swiper-slide-index="2" style="width: 245.8px; margin-left: 24px;"><div class="brand-card"><img src="~/site/assets/img/brand/brand_1_3.svg" alt="Brand Logo"></div></div>
+            </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+    </div>
+</div>
+<section class="space">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-3 col-md-8 mb-40 mb-xl-0">
+                <div class="offer-grid text-center mega-hover px-3 background-image" style="background-image: url(/site/assets/img/bg/cta_bg_4_3.jpg);">
+                    <span class="h6 box-subtitle fs-16"><span class="text-theme2">غذاهای 100% ارگانیک دریافت کنید</span></span><h3 class="box-title text-white">هر روز تازه و<br>با ما تمیز کنید<br>محصولات</h3>
+                    <a href="shop-details.html" class="th-btn btn-sm style4">اکنون خرید کنید<i class="fas fa-chevrons-right ms-2"></i></a>
+                </div>
+            </div>
+            <div class="col-xl-9">
+                <div class="row gy-4">
+                    <div class="col-lg-4 col-md-6">
+                        <h3 class="box-title mb-20 text-center text-md-start">محصولات پودری</h3>
+                        <div class="product-list-area">
+                            @foreach (var item in Model.PowderProducts.Products)
+                            {
+                                <div class="mb-4">
+                                    <div class="th-product list-view">
+                                        <div class="product-img">
+                                            @if(item.ImageSrc != null)
+                                            {
+                                                <img src="~/@item.ImageSrc" alt="@item.Name" />
+                                            }else{
+                                                <img src="~/defualt-image.png" alt="@item.Name" />
+                                            }
+                                            <div class="actions"><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a></div>
+                                        </div>
+                                        <div class="product-content">
+                                            <a href="shop-details.html" class="product-category">میوه های تازه</a><h3 class="product-title"><a href="~/ListProducts/ProductDetail?Id=@item.Id">@item.Name</a></h3>
+                                            <span class="price">@string.Format("{0:N0}",item.Price)</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">@item.Star</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                         
+                          
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h3 class="box-title mb-20 text-center text-md-start">محصولات خوراکی</h3>
+                        <div class="product-list-area">
+                            @foreach (var item in Model.MokhamerProducts.Products)
+                            {
+                                <div class="mb-4">
+                                    <div class="th-product list-view">
+                                        <div class="product-img">
+                                            @if (item.ImageSrc != null)
+                                            {
+                                                <img src="~/@item.ImageSrc" alt="@item.Name" />
+                                            }
+                                            else
+                                            {
+                                                <img src="~/defualt-image.png" alt="@item.Name" />
+                                            }
+                                            <div class="actions"><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a></div>
+                                        </div>
+                                        <div class="product-content">
+                                            <a href="shop-details.html" class="product-category">میوه های تازه</a><h3 class="product-title"><a href="~/ListProducts/ProductDetail?Id=@item.Id">@item.Name</a></h3>
+                                            <span class="price">@string.Format("{0:N0}", item.Price)</span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">@item.Star</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                        
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h3 class="box-title mb-20 text-center text-md-start">محصولات پرفروش</h3>
+                        <div class="product-list-area">
+                            <div class="mb-4">
+                                <div class="th-product list-view">
+                                    <div class="product-img">
+                                        <img src="~/site/assets/img/product/product_list_9.jpg" alt="Product Image"><div class="actions"><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a></div>
+                                    </div>
+                                    <div class="product-content">
+                                        <a href="shop-details.html" class="product-category">میوه های تازه</a><h3 class="product-title"><a href="shop-details.html">آب توت فرنگی</a></h3>
+                                        <span class="price">$08.85<del>$06.99</del></span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="th-product list-view">
+                                    <div class="product-img">
+                                        <img src="~/site/assets/img/product/product_list_10.jpg" alt="Product Image"><div class="actions"><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a></div>
+                                    </div>
+                                    <div class="product-content">
+                                        <a href="shop-details.html" class="product-category">میوه های تازه</a><h3 class="product-title"><a href="shop-details.html">کلم بروکلی ارگانیک</a></h3>
+                                        <span class="price">$08.85<del>$06.99</del></span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="th-product list-view">
+                                    <div class="product-img">
+                                        <img src="~/site/assets/img/product/product_list_11.jpg" alt="Product Image"><div class="actions"><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a></div>
+                                    </div>
+                                    <div class="product-content">
+                                        <a href="shop-details.html" class="product-category">میوه های تازه</a><h3 class="product-title"><a href="shop-details.html">فلفل دلمه ای سبز</a></h3>
+                                        <span class="price">$08.85<del>$06.99</del></span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="th-product list-view">
+                                    <div class="product-img">
+                                        <img src="~/site/assets/img/product/product_list_12.jpg" alt="Product Image"><div class="actions"><a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a></div>
+                                    </div>
+                                    <div class="product-content">
+                                        <a href="shop-details.html" class="product-category">میوه های تازه</a><h3 class="product-title"><a href="shop-details.html">میوه پاپایای رسیده</a></h3>
+                                        <span class="price">$08.85<del>$06.99</del></span><div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span>دارای رتبه<strong class="rating">5.00</strong>از 5 بر اساس<span class="rating">1</span>رتبه بندی مشتری</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="" data-pos-for="#testi-sec" data-sec-pos="bottom-half" style="margin-bottom: -202px;">
+    <div class="container z-index-common">
+        <div class="cta-box mega-hover background-image" style="background-image: url(/site/assets/img/bg/cta_bg_5_1.jpg);">
+            <div class="box-content">
+                <span class="box-subtitle">جمعه سیاه</span><h3 class="box-title">
+                    بلند شوید تا<b><span class="text-theme"> 30%</span>خاموش<br>سبزی</b>
+                </h3>
+                <a href="shop-details.html" class="th-btn">اکنون خرید کنید<i class="fas fa-chevrons-right ms-2"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="overflow-hidden bg-smoke2 space arrow-wrap shape-mockup-wrap" id="testi-sec" style="padding-top: 322px;">
+    <div class="shape-mockup d-none d-xxl-block" style="bottom: 0px; left: 0px;"><img src="~/site/assets/img/shape/food_shape_3.png" alt="shape"></div>
+    <div class="shape-mockup d-none d-xxl-block" style="right: 0px; bottom: 0px;"><img src="~/site/assets/img/shape/food_shape_4.png" alt="shape"></div>
+    <div class="container">
+        <div class="slider-area testi-grid-area">
+            <div class="swiper th-slider testi-grid-thumb swiper-initialized swiper-horizontal swiper-rtl swiper-backface-hidden swiper-thumbs" data-slider-options="{&quot;effect&quot;:&quot;slide&quot;,&quot;slidesPerView&quot;:&quot;3&quot;,&quot;spaceBetween&quot;:7,&quot;loop&quot;:false}">
+                <div class="swiper-wrapper" id="swiper-wrapper-a556fe722a88fd6f" aria-live="off" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms; transition-delay: 0ms;">
+                    <div class="swiper-slide swiper-slide-visible swiper-slide-active" role="group" aria-label="1 / 3" style="width: 78.6667px; margin-left: 7px;"><div class="box-img"><img src="~/site/assets/img/testimonial/testi_3_1.jpg" alt="Image"></div></div>
+                    <div class="swiper-slide swiper-slide-visible swiper-slide-next" role="group" aria-label="2 / 3" style="width: 78.6667px; margin-left: 7px;"><div class="box-img"><img src="~/site/assets/img/testimonial/testi_3_2.jpg" alt="Image"></div></div>
+                    <div class="swiper-slide swiper-slide-visible swiper-slide-thumb-active" role="group" aria-label="3 / 3" style="width: 78.6667px; margin-left: 7px;"><div class="box-img"><img src="~/site/assets/img/testimonial/testi_3_3.jpg" alt="Image"></div></div>
+                </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+            <div class="swiper th-slider swiper-initialized swiper-horizontal swiper-rtl swiper-backface-hidden" id="testiSlide1" data-slider-options="{&quot;effect&quot;:&quot;slide&quot;,&quot;loop&quot;:false,&quot;thumbs&quot;:{&quot;swiper&quot;:&quot;.testi-grid-thumb&quot;}}">
+                <div class="swiper-wrapper" id="swiper-wrapper-82f8392e676516bf" aria-live="off" style="transition-duration: 0ms; transform: translate3d(2548px, 0px, 0px); transition-delay: 0ms;">
+                    <div class="swiper-slide" role="group" aria-label="1 / 3" style="width: 1250px; margin-left: 24px;">
+                        <div class="testi-grid">
+                            <h3 class="testi-grid_title">غذاهای با کیفیت عالی</h3>
+                            <p class="testi-grid_text"><span>“</span>برخی از مطالعات نشان می دهد که غذاهای ارگانیک ممکن است دارای سطوح بالاتری از مواد مغذی و آنتی اکسیدان های خاص در مقایسه با غذاهای معمولی باشند. با این حال، این می تواند بسته به عواملی مانند کیفیت خاک و شرایط رشد متفاوت باشد.<span>”</span></p>
+                            <h4 class="testi-grid_name">
+                                الکس همیلتون -<span class="testi-grid_desig">دکتر</span>
+                            </h4>
+                            <div class="testi-grid_review">
+                                <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-prev" role="group" aria-label="2 / 3" style="width: 1250px; margin-left: 24px;">
+                        <div class="testi-grid">
+                            <h3 class="testi-grid_title">غذاهای ارگانیک تازه</h3>
+                            <p class="testi-grid_text"><span>“</span>برخی از مطالعات نشان می دهد که غذاهای ارگانیک ممکن است دارای سطوح بالاتری از مواد مغذی و آنتی اکسیدان های خاص در مقایسه با غذاهای معمولی باشند. با این حال، این می تواند بسته به عواملی مانند کیفیت خاک و شرایط رشد متفاوت باشد.<span>”</span></p>
+                            <h4 class="testi-grid_name">
+                                یاسمین جوی -<span class="testi-grid_desig">مشاور</span>
+                            </h4>
+                            <div class="testi-grid_review">
+                                <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 3" style="width: 1250px; margin-left: 24px;">
+                        <div class="testi-grid">
+                            <h3 class="testi-grid_title">غذاهای 100% ارگانیک</h3>
+                            <p class="testi-grid_text"><span>“</span>برخی از مطالعات نشان می دهد که غذاهای ارگانیک ممکن است دارای سطوح بالاتری از مواد مغذی و آنتی اکسیدان های خاص در مقایسه با غذاهای معمولی باشند. با این حال، این می تواند بسته به عواملی مانند کیفیت خاک و شرایط رشد متفاوت باشد.<span>”</span></p>
+                            <h4 class="testi-grid_name">
+                                مارتین دانیال -<span class="testi-grid_desig">دکتر</span>
+                            </h4>
+                            <div class="testi-grid_review">
+                                <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+            <button data-slider-prev="#testiSlide1" class="slider-arrow slider-prev"><i class="far fa-arrow-left"></i></button><button data-slider-next="#testiSlide1" class="slider-arrow slider-next"><i class="far fa-arrow-right"></i></button>
+        </div>
+    </div>
+</section>
+<section class="space" id="blog-sec">
+    <div class="container">
+        <div class="row justify-content-lg-between justify-content-center align-items-center">
+            <div class="col-lg"><h2 class="sec-title text-center text-lg-start">آخرین به روز رسانی ها و اخبار</h2></div>
+            <div class="col-lg-auto d-none d-lg-block"><div class="sec-btn"><a href="blog.html" class="th-btn">مشاهده پست بیشتر<i class="fas fa-chevrons-right ms-2"></i></a></div></div>
+        </div>
+        <div class="row gy-4">
+            <div class="col-xl-4 col-md-6">
+                <div class="blog-grid">
+                    <div class="blog-img"><img src="~/site/assets/img/blog/blog_3_1.jpg" alt="blog image"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <a href="blog.html"><i class="far fa-user"></i>توسط میوه</a><a href="blog.html"><i class="far fa-calendar"></i>15 مارس 2023</a>
+                        </div>
+                        <h3 class="box-title"><a href="blog-details.html">عادات غذایی خود را با غذاهای ارگانیک تغییر دهید</a></h3>
+                        <a href="blog-details.html" class="th-btn btn-sm style4">ادامه مطلب<i class="fas fa-chevrons-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="blog-grid">
+                    <div class="blog-img"><img src="~/site/assets/img/blog/blog_3_2.jpg" alt="blog image"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <a href="blog.html"><i class="far fa-user"></i>توسط میوه</a><a href="blog.html"><i class="far fa-calendar"></i>16 مارس 2023</a>
+                        </div>
+                        <h3 class="box-title"><a href="blog-details.html">تغذیه خود را با وعده های غذایی ارگانیک متحول کنید</a></h3>
+                        <a href="blog-details.html" class="th-btn btn-sm style4">ادامه مطلب<i class="fas fa-chevrons-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="blog-grid">
+                    <div class="blog-img"><img src="~/site/assets/img/blog/blog_3_3.jpg" alt="blog image"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <a href="blog.html"><i class="far fa-user"></i>توسط میوه</a><a href="blog.html"><i class="far fa-calendar"></i>17 مارس 2023</a>
+                        </div>
+                        <h3 class="box-title"><a href="blog-details.html">خوردن ارگانیک برای سلامتی بهتر عالی است</a></h3>
+                        <a href="blog-details.html" class="th-btn btn-sm style4">ادامه مطلب<i class="fas fa-chevrons-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="footer-top-newsletter">
+    <div class="container z-index-common">
+        <div class="newsletter-wrap">
+            <div class="newsletter-content">
+                <div class="email-icon"><img src="~/site/assets/img/icon/email_2.svg" alt="Icon"></div>
+                <h4 class="newsletter-title">برای دریافت به روز رسانی و اخبار درباره ما ثبت نام کنید.</h4>
+            </div>
+            <form class="newsletter-form">
+                <div class="form-group"><input class="form-control" type="email" placeholder="آدرس ایمیل" required=""></div>
+                <button type="submit" class="th-btn">اشتراک در</button>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+}

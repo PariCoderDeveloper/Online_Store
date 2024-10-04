@@ -1,0 +1,198 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Shop.Application.Services.Product.Command.AddNewProduct;
+@model AddProductDto
+@{
+    ViewData["Title"] = "ایجاد محصول جدید";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container bg-white p-5 shadow rounded">
+    <h2 class="text-center mb-4">محصول جدید</h2>
+    <div class="card-body">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Name">نام محصول</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                    </div>
+                    <input type="text" asp-for="Name" class="form-control" placeholder="نام محصول را وارد کنید">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Brand">برند</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input type="text" asp-for="Brand" class="form-control" placeholder="برند محصول را وارد کنید">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price">قیمت محصول</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    </div>
+                    <input type="number" asp-for="Price" class="form-control" placeholder="قیمت محصول را وارد کنید">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Inventory">موجودی محصول در انبار</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    </div>
+                    <input type="number" asp-for="Inventory" class="form-control" placeholder="موجودی محصول را وارد کنید">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-check">
+                    <input type="checkbox" asp-for="Displayed" class="form-check-input">
+                    <label asp-for="Displayed" class="form-check-label">نمایش داده شود؟</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CategoryId">دسته‌بندی محصول</label>
+                <select asp-for="CategoryId" asp-items="@ViewBag.CategoryList" class="form-control"></select>
+            </div>
+
+            <div class="form-group">
+                <label for="Image" class="form-label">عکس محصول را وارد کنید</label>
+                <input class="form-control" type="file" asp-for="Image" accept="image/*" multiple>
+                <div class="preview-container"></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description">توضیحات محصول</label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="basicInput">نام ویژگی</label>
+                <input type="text" class="form-control" id="txtDisplayName" placeholder="نام ویژگی">
+                <label for="basicInput">مقدار ویژگی</label>
+                <input type="text" class="form-control" id="txtValue" placeholder="مقدار ویژگی">
+                <br/>
+                <button type="button" class="btn btn-success" id="btnAddFeatures">افزودن ویژگی</button>
+            </div>
+
+            <br class="clear"/>
+            <table id="tbl_features" class="table table-hover table-condensed table-responsive">
+                <thead>
+                    <tr>
+                        <th>نام ویژگی</th>
+                        <th>مقدار ویژگی</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <button id="btnAddProduct" type="button" class="btn btn-success w-100">ثبت</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <link href="~/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/sweetalert2/sweetalert2.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Add feature to table
+        $('#btnAddFeatures').on("click", function() {
+          var displayName = $("#txtDisplayName").val();
+          var displayValue = $("#txtValue").val();
+
+          if (displayName === "" || displayValue === "") {
+            swal.fire(
+              'هشدار!',
+              "نام و مقدار را باید وارد کنید",
+              'warning'
+            );
+          } else {
+            $('#tbl_features tbody').append(
+              '<tr> <td>' + displayName + '</td> <td>' + displayValue + '</td> <td> <a class="idFeatures btnDelete btn btn-danger">حذف</a></td></tr>'
+            );
+            $('#txtDisplayName').val('');
+            $('#txtValue').val('');
+          }
+        });
+
+        // Remove feature from table
+        $('#tbl_features').on("click", '.idFeatures', function() {
+          $(this).closest('tr').remove();
+        });
+
+        // Add product
+        $("#btnAddProduct").on("click", function() {
+          var data = new FormData();
+          data.append("Name", $("#Name").val());
+          data.append("Brand", $("#Brand").val());
+          data.append("Price", $("#Price").val());
+          data.append("Inventory", $("#Inventory").val());
+          data.append("Displayed", $("#Displayed").is(":checked"));
+          data.append("CategoryId", $("#CategoryId").find('option:selected').val());
+          data.append("Description", $("#Description").val());
+
+          var productImage = document.getElementById("Image");
+          if (productImage.files.length > 0) {
+            for (var i = 0; i < productImage.files.length; i++) {
+               data.append('Image', productImage.files[i]);
+            }
+          }
+
+          var dataFeaturesModel = $("#tbl_features tr:gt(0)").map(function() {
+            return {
+              DisplayName: $(this.cells[0]).text(),
+              Value: $(this.cells[1]).text(),
+            };
+          }).get();
+
+          $.each(dataFeaturesModel, function(i, val) {
+            data.append('Features[' + i + '].DisplayName', val.DisplayName);
+            data.append('Features[' + i + '].Value', val.Value);
+          });
+
+          $.ajax({
+            type: "POST",
+            url: "Create",
+            contentType: false,
+            processData: false,
+            data: data,
+            success: function(response) {
+              if (response.isSuccess) {
+                swal.fire(
+                  'موفق!',
+                  response.message,
+                  'success'
+                ).then(function() {
+                                window.location.href = "/Product/index";
+                });
+              } else {
+                swal.fire(
+                  'هشدار!',
+                  response.message,
+                  'warning'
+                );
+              }
+            },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        var errorMessage = xhr.responseText ? xhr.responseText : 'خطایی رخ داد. دوباره امتحان کنید.';
+                        swal.fire(
+                            'خطا!',
+                            errorMessage,
+                            'error'
+                        );
+                    }
+
+          });
+        });
+      });
+    </script>
+}

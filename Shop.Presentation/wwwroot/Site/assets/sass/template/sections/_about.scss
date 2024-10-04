@@ -1,0 +1,170 @@
+/* About 1 ---------------------------------- */
+.img-box1 {
+    position: relative;
+    z-index: 2;
+    text-align: right;
+    width: 100%;
+    .img1,
+    .img2 {
+        img {
+            border-radius: 30px;
+        }
+    }
+    .img2 {
+        display: inline-block;
+        position: relative;
+        z-index: 2;
+    }
+    .img1 {
+        position: absolute;
+        bottom: 70px;
+        left: 0;
+        z-index: 1;
+    }
+    .shape1 {
+        position: absolute;
+        bottom: 0;
+        right: 45%;
+        img {
+            max-width: fit-content;
+        }
+    }
+    .year-counter {
+        margin-top: 24px;
+        margin-left: auto;
+    }
+}
+
+@include lg {
+    .img-box1 {
+        max-width: 690px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.year-counter {
+    max-width: 230px;
+    text-align: left;
+    padding: 30px;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.08);
+    border-radius: 30px;
+    background-color: $white-color;
+    position: relative;
+    z-index: 3;
+    &_number {
+        font-family: $title-font;
+        font-size: 70px;
+        font-weight: 700;
+        color: $theme-color;
+        line-height: 50px;
+        margin-bottom: 20px;
+    }
+    &_text {
+        font-family: $title-font;
+        color: $title-color;
+        font-size: 22px;
+        line-height: 32px;
+        font-weight: 700;
+        margin-bottom: -0.32em;
+        text-transform: uppercase;
+    }
+}
+.about-feature {
+    &-wrap {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px 40px;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid $border-color;
+        @include sm {
+            gap: 20px;
+        }
+    } 
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: $smoke-color2;
+    border-radius: 15px;
+    padding: 10px 15px;
+    max-width: 244px;
+    text-align: left;
+    .box-title {
+        font-size: 18px;
+        line-height: 26px;
+        margin-top: -0.34em;
+        margin-bottom: -0.34em;
+    }
+}
+
+/* About 2 ---------------------------------- */
+
+@media (min-width: 1300px) {
+    .img-box5,
+    .img-box3 {
+        margin-right: 56px;
+    }
+}
+.img-box3 {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 80px;
+    .img1 {
+        img {
+            border-radius: 30px;
+        }
+    }
+    .img2 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        img {
+            border-radius: 30px;
+        }
+    }
+    .shape1 {
+        position: absolute;
+        top: 15px;
+        right: 0;
+        animation: jumpAni 5s linear infinite;
+    }
+    .shape2 {
+        position: absolute;
+        top: -115px;
+        right: -50px;
+        z-index: -1;
+        img {
+            max-width: max-content;
+        }
+    }
+}
+
+.img-box5 {
+    position: relative;
+    z-index: 2;
+    .shape1 {
+        position: absolute;
+        top: -285px;
+        right: -120px;
+        z-index: -1;
+        img {
+            max-width: max-content;
+        }
+    }
+    @include lg {
+        text-align: center;
+    }
+}
+
+@include lg {
+    .img-box3 {
+        .shape2 {
+            right: 0;
+        }
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -1,0 +1,15 @@
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\bin\Debug\net8.0\Shop.Ccommon.deps.json
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\bin\Debug\net8.0\Shop.Ccommon.dll
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\bin\Debug\net8.0\Shop.Ccommon.pdb
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\obj\Debug\net8.0\Shop.Ccommon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\obj\Debug\net8.0\Shop.Ccommon.AssemblyInfoInputs.cache
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\obj\Debug\net8.0\Shop.Ccommon.AssemblyInfo.cs
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\obj\Debug\net8.0\Shop.Ccommon.csproj.CoreCompileInputs.cache
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\obj\Debug\net8.0\Shop.Ccommon.dll
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\obj\Debug\net8.0\refint\Shop.Ccommon.dll
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\obj\Debug\net8.0\Shop.Ccommon.pdb
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\obj\Debug\net8.0\ref\Shop.Ccommon.dll
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\bin\Debug\net8.0\testhost.exe
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\bin\Debug\net8.0\testhost.dll
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\obj\Debug\net8.0\Shop.Ccommon.csproj.AssemblyReference.cache
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\Shop.Ccommon\obj\Debug\net8.0\Shop.Ccommon.sourcelink.json

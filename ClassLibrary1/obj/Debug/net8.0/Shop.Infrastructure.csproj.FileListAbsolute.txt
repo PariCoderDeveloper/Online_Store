@@ -1,0 +1,12 @@
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\ClassLibrary1\bin\Debug\net8.0\Shop.Infrastructure.deps.json
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\ClassLibrary1\bin\Debug\net8.0\Shop.Infrastructure.dll
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\ClassLibrary1\bin\Debug\net8.0\Shop.Infrastructure.pdb
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\ClassLibrary1\obj\Debug\net8.0\Shop.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\ClassLibrary1\obj\Debug\net8.0\Shop.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\ClassLibrary1\obj\Debug\net8.0\Shop.Infrastructure.AssemblyInfo.cs
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\ClassLibrary1\obj\Debug\net8.0\Shop.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\ClassLibrary1\obj\Debug\net8.0\Shop.Infrastructure.dll
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\ClassLibrary1\obj\Debug\net8.0\refint\Shop.Infrastructure.dll
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\ClassLibrary1\obj\Debug\net8.0\Shop.Infrastructure.pdb
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\ClassLibrary1\obj\Debug\net8.0\ref\Shop.Infrastructure.dll
+C:\Users\Unknwoun\Downloads\ASP.NET\Session 2\Project\Sample2\BlankSolution\ClassLibrary1\obj\Debug\net8.0\Shop.Infrastructure.sourcelink.json

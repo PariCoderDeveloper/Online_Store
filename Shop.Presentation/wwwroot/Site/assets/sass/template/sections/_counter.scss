@@ -1,0 +1,148 @@
+/* Counter 1 ---------------------------------- */
+.counter-card {
+    --border-color: #D4D4D4;
+    &-wrap {
+        display: flex;
+        justify-content: space-between;
+        .divider {
+            width: 1px;
+            height: 75px;
+            background-color: rgba($color: #fff, $alpha: 0.4);
+            &:last-of-type {
+                display: none;
+            }
+        }
+    }
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    .box-number {
+        font-size: 44px;
+        color: $white-color;
+        font-weight: 700;
+        margin-bottom: 4px;
+        margin-top: -0.2em;
+        .counter-number {
+            color: $white-color;
+        }
+    }
+    .box-text {
+        font-size: 18px;
+        font-weight: 500;
+        color: $white-color;
+    }
+    .media-body {
+        flex: 1;
+        max-width: 180px;
+    }
+}
+
+.counter-sec1 {
+    padding: 90px 0 80px 0;
+    background-position: top center;
+}
+
+.counter-sec11 {
+    padding: 80px 0 100px 0;
+    background-size: auto;
+    background-repeat: repeat-x;
+    background-position: bottom center;
+    background-color: $theme-color;
+}
+
+@include lg {
+    .counter-card {
+        &-wrap {
+            .divider {
+                height: 155px;
+            }
+        }
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        .box-number {
+            margin-bottom: 0;
+        }
+    }
+}
+@include md {
+    .counter-card {
+        .box-number {
+            font-size: 36px;
+        }
+        .box-text {
+            font-size: 16px;
+        }
+    }
+}
+
+@include sm {
+    .counter-sec1 {
+        padding-bottom: 60px;
+    }
+    .counter-sec11 {
+        padding-top: 60px;
+    }
+    .counter-card {
+        &-wrap {
+            flex-wrap: wrap;
+            position: relative;
+            .divider {
+                display: none;
+            }
+            &:after {
+                content: '';
+                height: 100%;
+                width: 1px;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                background-color: rgba($color: #fff, $alpha: 0.4);
+            }
+        }
+        flex: 50%;
+        padding-left: 10px;
+        padding-right: 10px;
+        &:nth-child(1),
+        &:nth-child(3) {
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba($color: #fff, $alpha: 0.4);
+            margin-bottom: 30px;
+        }
+    }
+}
+
+//---------------------------------
+.counter-card {
+    &-wrap {
+        &.style2 {
+            &:after {
+                background-color: $theme-color;
+            }
+        }
+    }
+    &.style2 {
+        border-color: $theme-color;
+        .box-number {
+            color: $title-color;
+        }
+        .counter-number {
+            color: inherit;
+        }
+    }
+}
+.counter-sec2 {
+    margin-top: -20px;
+    background-size: auto;
+    background-position: top center;
+    background-repeat: repeat-x;
+    position: relative;
+    z-index: 2;
+    &:before {
+        content: '';
+        position: absolute;
+        inset: 80px 0 0 0;
+        background-color: $smoke-color2;
+        z-index: -1;
+    }
+}

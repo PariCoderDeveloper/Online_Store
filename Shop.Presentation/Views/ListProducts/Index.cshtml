@@ -1,0 +1,127 @@
+﻿@addTagHelper *, LazZiya.TagHelpers
+@using Shop.Application.Services.Product.Queries.GetProductForSite;
+@model ResultGetProductForSiteDto
+@{
+    ViewData["Title"] = "لیست محصولات";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int PageNumber = 1;
+    int PageSize = 8;
+    int.TryParse(Context.Request.Query["Page"], out PageNumber);
+    int.TryParse(Context.Request.Query["PageSize"], out PageSize);
+}
+
+<div class="breadcumb-wrapper background-image" style="background-image: url('/Site/assets/img/bg/breadcumb-bg.jpg');">
+    <div class="container">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">خرید کنید</h1>
+            <ul class="breadcumb-menu">
+                <li><a href="home-organic-farm.html">صفحه محصولات</a></li>
+                <li>خرید کنید</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<section class="space-top space-extra-bottom">
+    <div class="container">
+        <div class="th-sort-bar">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md"><p class="woocommerce-result-count">نتیجه : @Model.TotalRow</p></div>
+                <div class="col-md-auto">
+                    <form asp-action="Index" asp-controller="ListProducts" method="get">
+                        <div class="input-group" style="width:100%;">
+
+                          <select name="orderby" class="orderby form-control" aria-label="Shop order">
+                            <option value=0 selected>مرتب سازی پیش فرض</option>
+                            <option value=1>مرتب سازی بر اساس محبوبیت</option>
+                            <option value=2>مرتب سازی بر اساس رتبه بندی متوسط</option>
+                            <option value=3>مرتب سازی بر اساس آخرین</option>
+                            <option value=4>مرتب سازی بر اساس قیمت: کم به زیاد</option>
+                            <option value=5>مرتب سازی بر اساس قیمت: زیاد به پایین</option>
+                          </select>
+                          <button type="submit" class="btn btn-success-outline form-control"value="جستجو" >
+                                              <i class="fas fa-search"></i>
+                          </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row gy-40">
+           
+                @foreach (var item in Model.Products)
+            {
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="th-product product-grid shadow-sm border rounded overflow-hidden">
+                        <div class="product-img position-relative" style="width: 250px; height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                            <img src="@(!string.IsNullOrEmpty(item.ImageSrc) ? "/"+item.ImageSrc : Url.Content("~/defualt-image.png"))" alt="@item.Name" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                            <div class="actions position-absolute top-50 start-50 translate-middle">
+                                <a href="~/ListProducts/ProductDetail/@item.Id" class="icon-btn popup-content">
+                                    <i class="far fa-eye"></i>
+                                </a>
+                                <a href="~/Cart/AddToCart?ProductId=@item.Id" class="icon-btn">
+                                    <i class="far fa-cart-plus"></i>
+                                </a>
+                                <a href="" class="icon-btn">
+                                    <i class="far fa-heart"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-content p-3">
+                            <a href="@Url.Action("ProductDetail", "ListProducts", new { Id = item.Id })" class="product-category text-muted">دسته بندی : @item.Category</a>
+                            <h3 class="product-title my-2">
+                                <a href="@Url.Action("ProductDetail", "ListProducts", new { Id = item.Id })" class="text-dark text-decoration-none">@item.Name</a>
+                            </h3>
+                            <span class="price text-primary fw-bold">@item.Price.ToString("n0") تومان</span>
+                            <div class="woocommerce-product-rating">
+
+                                @*<div class="star-rating" role="img" aria-label="Rated @item.Star out of 5">
+                                        <span>
+                                        دارای رتبه
+                                        <strong class="rating">@item.Star</strong> از 5
+                                        <br>
+                                </span> </div>*@
+                                <div role="img">
+                                         @for (int i = 1; i <= 5; i++)
+                                        {
+                                            if (i <= item.Star)
+                                            {
+                                                <i class="fas fa-star filled"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="far fa-star"></i>
+                                            }
+                                        } 
+                                     </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            }
+           
+ 
+        </div>
+        <div class="text-center">
+           <paging total-records="@Model.TotalRow"
+           page-no="@PageNumber==0?1:PageNumber"
+           page-size="@PageSize==0?8:PageSize"
+           show-prev-next="true"
+           show-total-pages="false"
+           show-total-recordes="false"
+           show-page-size-nav="true"
+           show-first-numbered-page="true"
+           show-last-numbered-page="true"
+           query-string-key-page-no="Page"
+           query-string-key-page-size="PageSize"
+           query-string-value="@@(Request.QueryString.Value)"
+           gap-size="2">
+
+            </paging>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+ 
+}
