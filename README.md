@@ -1,4 +1,4 @@
-# BlankSolution
+
 # Online Store
 
 Welcome to the **Online Store** project! This web application aims to provide users with a seamless and user-friendly shopping experience. Whether you are looking to buy products or manage your online store, this platform has got you covered.
